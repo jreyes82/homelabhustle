@@ -280,8 +280,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    </ul>
   <div class="drawer-divider"></div>
   <div class="drawer-label">Contact</div>
   <div class="drawer-contact" id="drawer-contact"></div>
@@ -341,6 +340,11 @@
   document.getElementById('drawer-role').textContent = SITE.role;
   document.getElementById('drawer-status').textContent = SITE.status;
 
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>`
+    <a href="${c.href}" ${c.href.startsWith('http')?'target="_blank"':''}>
+      <span class="drawer-contact-label">${c.label}</span>${c.value}
+    </a>`).join('');
+  
   document.getElementById('hero-eyebrow').textContent = 'IT Infrastructure · ' + SITE.location;
   document.getElementById('hero-name').textContent = SITE.name;
   document.getElementById('hero-bio').textContent = SITE.bio;
