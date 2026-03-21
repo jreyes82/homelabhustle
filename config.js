@@ -11,7 +11,7 @@ const SITE = {
   contact: [
     { label: "Email",    value: "joseph@homelabhustle.com",          href: "joseph@homelabhustle.com" },
     { label: "LinkedIn", value: "https://www.linkedin.com/in/jreyes1982/", href: "https://www.linkedin.com/in/jreyes1982/" },
-    { label: "GitHub",   value: "github.com/yourhandle",       href: "https://github.com/yourhandle" },
+    { label: "GitHub",   value: "https://github.com/jreyes82",       href: "https://github.com/jreyes82" },
   ],
 
   /* ── ROLES YOU'RE OPEN TO ───────────────────────────────── */
