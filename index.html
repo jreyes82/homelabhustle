@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
-<link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
   /* ── HERO ── */
   .hero-bio {
@@ -367,14 +366,25 @@
       ${pills(s.pills)}
     </div>`).join('');
 
-  document.getElementById('cert-row').innerHTML = SITE.certs.map((c,i)=>`
-    <div class="cert-item ${i===0?'on':''}">
+  const inProgress = SITE.certs.filter(c => c.section === 'In Progress');
+  const completed  = SITE.certs.filter(c => c.section === 'Completed');
+
+  const renderCerts = arr => arr.map(c => `
+    <div class="cert-item ${!c.live?'on':''}">
       <div class="cdot ${c.live?'live':''}"></div>
       <div>
         <div class="cert-name">${c.name}</div>
         <div class="cert-sub">${c.sub}</div>
       </div>
     </div>`).join('');
+
+  document.getElementById('cert-row').innerHTML = `
+    <div style="width:100%;">
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">In Progress</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">${renderCerts(inProgress)}</div>
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Completed</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">${renderCerts(completed)}</div>
+    </div>`;
 
   document.getElementById('exp-timeline').innerHTML = SITE.experience.map(e=>`
     <div class="exp-item">
