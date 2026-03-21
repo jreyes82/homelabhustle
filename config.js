@@ -26,8 +26,8 @@ const SITE = {
   /* ── STATS (hero card) ──────────────────────────────────── */
   stats: [
     { key: "Experience",    value: "7+ yrs" },
-    { key: "Location",      value: "Santa Clara, CA" },
-    { key: "Certification", value: "CompTIA N+" },
+    { key: "Location",      value: "Campbell, CA" },
+    { key: "Certification", value: "CompTIA A+" },
     { key: "Homelab",       value: "Always on" },
     { key: "Status",        value: "Open to work", blue: true },
   ],
