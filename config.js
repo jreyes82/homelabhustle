@@ -66,7 +66,7 @@ const SITE = {
     { name: "Google IT Support",           sub: "Coursera - 2020",                  live: true  },
     { name: "Atlassian ITSM Professional", sub: "Atlassian - Dec 2024",             live: true  },
     { name: "Microsoft Intune",            sub: "Microsoft - Feb 2025",             live: true  },
-    { name: "Okta Identity Foundations",   sub: "Okta Â· Feb 2025",                  live: true  },
+    { name: "Okta Identity Foundations",   sub: "Okta - Feb 2025",                  live: true  },
     { name: "CCNA Introduction",           sub: "Cisco Networking Academy - 2017",  live: true  },
   ],
 
