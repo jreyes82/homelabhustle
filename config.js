@@ -10,7 +10,7 @@ const SITE = {
   /* ── CONTACT LINKS ──────────────────────────────────────── */
   contact: [
     { label: "Email",    value: "joseph@homelabhustle.com",          href: "joseph@homelabhustle.com" },
-    { label: "LinkedIn", value: "linkedin.com/in/yourprofile", href: "https://linkedin.com/in/yourprofile" },
+    { label: "LinkedIn", value: "https://www.linkedin.com/in/jreyes1982/", href: "https://www.linkedin.com/in/jreyes1982/" },
     { label: "GitHub",   value: "github.com/yourhandle",       href: "https://github.com/yourhandle" },
   ],
 
@@ -19,7 +19,6 @@ const SITE = {
     "Remote IT Support",
     "Help Desk (L1 / L2)",
     "Data Center Technician",
-    "NOC / Network Operations",
     "Junior Network Engineer",
   ],
 
