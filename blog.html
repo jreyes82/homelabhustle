@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Homelab Hustle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .filter-row {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;
+  }
+
+  .filter-btn {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: .14em; text-transform: uppercase;
+    padding: 7px 14px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--muted); cursor: pointer;
+    transition: all .15s;
+  }
+
+  .filter-btn:hover { border-color: var(--bord2); color: var(--text); }
+  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--light); }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border);
+  }
+
+  .blog-card {
+    background: var(--surface); padding: 28px;
+    text-decoration: none; display: block;
+    border-top: 3px solid transparent;
+    transition: background .2s, border-top-color .2s;
+  }
+
+  .blog-card:hover { background: var(--surf2); border-top-color: var(--accent); }
+  .blog-card.hidden { display: none; }
+
+  .bc-meta {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 12px;
+  }
+
+  .bc-date {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--faint);
+  }
+
+  .bc-tag {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--acc2); padding: 2px 7px;
+    border: 1px solid rgba(58,126,170,.25);
+  }
+
+  .bc-title {
+    font-family: var(--serif); font-size: 17px;
+    font-weight: 700; color: var(--light);
+    line-height: 1.3; margin-bottom: 10px;
+  }
+
+  .bc-excerpt {
+    font-size: 12px; font-weight: 300;
+    color: var(--muted); line-height: 1.7; margin-bottom: 16px;
+  }
+
+  .bc-read {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .empty-state {
+    grid-column: 1/-1;
+    padding: 64px; text-align: center;
+    font-size: 13px; color: var(--faint);
+    background: var(--surface);
+  }
+
+  @media (max-width: 700px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<script src="config.js"></script>
+<div id="sidebar"></div>
+<main id="main">
+  <div class="page-eyebrow">Writing</div>
+  <h1 class="page-title">Blog</h1>
+  <div class="page-rule"></div>
+
+  <div class="filter-row" id="filters"></div>
+  <div class="blog-grid" id="blog-grid"></div>
+</main>
+
+<script>
+  document.title = 'Blog — ' + SITE.name;
+  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
+
+  /* ── SIDEBAR ── */
+  document.getElementById('sidebar').innerHTML = `
+    <div class="sb-avatar">${initials}</div>
+    <div class="sb-name">${SITE.name}</div>
+    <div class="sb-role">${SITE.role}</div>
+    <div class="sb-status"><div class="sb-dot"></div><span>${SITE.status}</span></div>
+    <div class="sb-divider"></div>
+    <div class="sb-label">Navigate</div>
+    <ul class="sb-nav">
+      <li><a href="index.html"><span class="nav-dot"></span>Home</a></li>
+      <li><a href="index.html#skills"><span class="nav-dot"></span>Skills</a></li>
+      <li><a href="index.html#projects"><span class="nav-dot"></span>Projects</a></li>
+      <li><a href="index.html#experience"><span class="nav-dot"></span>Experience</a></li>
+      <li><a href="blog.html" class="active"><span class="nav-dot"></span>Blog</a></li>
+      <li><a href="index.html#contact"><span class="nav-dot"></span>Contact</a></li>
+    </ul>
+    <div class="sb-divider"></div>
+    <div class="sb-label">Contact</div>
+    <div class="sb-contact">
+      ${SITE.contact.map(c=>`
+        <a href="${c.href}" ${c.href.startsWith('http')?'target="_blank"':''}>
+          <span class="sb-contact-label">${c.label}</span>
+          ${c.value}
+        </a>`).join('')}
+    </div>`;
+
+  /* ── FILTERS ── */
+  const tags = ['All', ...new Set(SITE.blog.map(b => b.tag))];
+  let active = 'All';
+
+  const filterRow = document.getElementById('filters');
+  tags.forEach(tag => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (tag === 'All' ? ' active' : '');
+    btn.textContent = tag;
+    btn.onclick = () => {
+      active = tag;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.blog-card').forEach(card => {
+        card.classList.toggle('hidden', active !== 'All' && card.dataset.tag !== active);
+      });
+    };
+    filterRow.appendChild(btn);
+  });
+
+  /* ── BLOG GRID ── */
+  const grid = document.getElementById('blog-grid');
+
+  if (SITE.blog.length === 0) {
+    grid.innerHTML = `<div class="empty-state">No posts yet — check back soon.</div>`;
+  } else {
+    grid.innerHTML = SITE.blog.map(b => `
+      <a href="${b.href}" class="blog-card" data-tag="${b.tag}">
+        <div class="bc-meta">
+          <span class="bc-date">${b.date}</span>
+          <span class="bc-tag">${b.tag}</span>
+        </div>
+        <div class="bc-title">${b.title}</div>
+        <p class="bc-excerpt">${b.excerpt}</p>
+        <span class="bc-read">Read post &rarr;</span>
+      </a>`).join('');
+  }
+</script>
+</body>
+</html>

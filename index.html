@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .hero-bio {
+    font-size: 15px; font-weight: 300;
+    color: var(--text); line-height: 1.85;
+    margin-bottom: 28px;
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border);
+    margin-bottom: 12px;
+  }
+
+  .skill-cat {
+    font-family: var(--mono);
+    font-size: 8px; letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent); margin-bottom: 6px;
+  }
+
+  .skill-name {
+    font-family: var(--serif);
+    font-size: 15px; font-weight: 700;
+    color: var(--light); margin-bottom: 6px;
+  }
+
+  .skill-desc { font-size: 11px; color: var(--muted); line-height: 1.6; }
+
+  .cert-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+
+  .cert-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    transition: border-left-color .2s;
+  }
+
+  .cert-item:hover, .cert-item.on { border-left-color: var(--accent); }
+
+  .cdot { width: 6px; height: 6px; border-radius: 50%; background: var(--faint); flex-shrink: 0; }
+  .cdot.live { background: var(--acc2); box-shadow: 0 0 5px rgba(91,163,204,.4); }
+
+  .cert-name { font-size: 11px; font-weight: 500; color: var(--text); }
+  .cert-sub {
+    font-family: var(--mono); font-size: 8px;
+    letter-spacing: .08em; color: var(--faint);
+    text-transform: uppercase; margin-top: 1px;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border);
+  }
+
+  .project-id {
+    font-family: var(--mono); font-size: 8px;
+    letter-spacing: .2em; color: var(--faint); margin-bottom: 10px;
+  }
+
+  .project-name {
+    font-family: var(--serif); font-size: 17px;
+    font-weight: 700; color: var(--light);
+    margin-bottom: 8px; line-height: 1.25;
+  }
+
+  .project-desc {
+    font-size: 12px; font-weight: 300;
+    color: var(--muted); line-height: 1.7; margin-bottom: 14px;
+  }
+
+  .exp-timeline { display: flex; flex-direction: column; position: relative; }
+
+  .exp-timeline::before {
+    content: ''; position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 1px; background: var(--border);
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px; padding: 0 0 44px 24px;
+    position: relative;
+  }
+
+  .exp-item::before {
+    content: ''; position: absolute;
+    left: -4px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+  }
+
+  .exp-item:last-child { padding-bottom: 0; }
+  .exp-item:last-child::before { background: var(--bord2); }
+
+  .exp-period {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: .12em; color: var(--accent);
+    text-transform: uppercase; display: block; margin-bottom: 5px;
+  }
+
+  .exp-company { font-size: 12px; font-weight: 500; color: var(--text); }
+  .exp-loc { font-family: var(--mono); font-size: 9px; color: var(--faint); margin-top: 2px; }
+
+  .exp-role {
+    font-family: var(--serif); font-size: 19px;
+    font-weight: 700; color: var(--light);
+    margin-bottom: 12px; line-height: 1.2;
+  }
+
+  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+
+  .exp-list li {
+    font-size: 12px; font-weight: 300;
+    color: var(--muted); display: flex; gap: 10px; line-height: 1.6;
+  }
+
+  .exp-list li::before {
+    content: '–'; color: var(--accent);
+    flex-shrink: 0; font-family: var(--mono);
+  }
+
+  .blog-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px; background: var(--border);
+  }
+
+  .blog-preview-card {
+    background: var(--surface); padding: 20px;
+    text-decoration: none; display: block;
+    border-top: 3px solid transparent;
+    transition: background .2s, border-top-color .2s;
+  }
+
+  .blog-preview-card:hover { background: var(--surf2); border-top-color: var(--accent); }
+
+  .bp-date {
+    font-family: var(--mono); font-size: 8px;
+    letter-spacing: .15em; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 6px; display: block;
+  }
+
+  .bp-tag {
+    font-family: var(--mono); font-size: 8px;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--acc2); padding: 2px 6px;
+    border: 1px solid rgba(58,126,170,.25);
+    display: inline-block; margin-bottom: 10px;
+  }
+
+  .bp-title {
+    font-family: var(--serif); font-size: 14px;
+    font-weight: 700; color: var(--light);
+    line-height: 1.35; margin-bottom: 8px;
+  }
+
+  .bp-excerpt { font-size: 11px; font-weight: 300; color: var(--muted); line-height: 1.65; }
+
+  .view-all {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 16px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none;
+    transition: color .2s;
+  }
+
+  .view-all:hover { color: var(--acc2); }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 8px; }
+
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 16px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    text-decoration: none; color: var(--text); font-size: 12px;
+    transition: border-left-color .2s, color .2s;
+  }
+
+  .contact-link:hover { border-left-color: var(--accent); color: var(--acc2); }
+
+  .cl-label {
+    font-family: var(--mono); font-size: 8px;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+  }
+
+  .avail-card {
+    background: var(--surface); border: 1px solid var(--border); padding: 24px;
+  }
+
+  .avail-hdr {
+    font-family: var(--mono); font-size: 8px;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 18px;
+  }
+
+  .avail-status { display: flex; align-items: center; gap: 9px; margin-bottom: 18px; }
+
+  .avail-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--acc2); box-shadow: 0 0 7px rgba(91,163,204,.45);
+    flex-shrink: 0; animation: pulse 2s ease-in-out infinite;
+  }
+
+  .avail-status-text {
+    font-family: var(--serif); font-size: 16px;
+    font-weight: 700; color: var(--light);
+  }
+
+  .avail-roles { display: flex; flex-direction: column; gap: 8px; }
+
+  .avail-role {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 12px; font-weight: 300; color: var(--muted);
+  }
+
+  .avail-role::before {
+    content: ''; display: block;
+    width: 14px; height: 1px; background: var(--accent); flex-shrink: 0;
+  }
+
+  .section-gap { margin-bottom: 64px; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(12px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .fade-in { animation: fadeUp .5s ease both; }
+  .fade-in-2 { animation: fadeUp .5s ease both .1s; }
+  .fade-in-3 { animation: fadeUp .5s ease both .2s; }
+
+  @media (max-width: 900px) {
+    .skills-grid, .projects-grid, .blog-preview-grid, .contact-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<script src="config.js"></script>
+<div id="sidebar"></div>
+<main id="main"></main>
+<script>
+  document.title = SITE.name + ' — IT Infrastructure';
+
+  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
+
+  const pills = arr => `<div class="pills">${arr.map(p=>`<span class="pill">${p}</span>`).join('')}</div>`;
+
+  /* ── SIDEBAR ── */
+  document.getElementById('sidebar').innerHTML = `
+    <div class="sb-avatar">${initials}</div>
+    <div class="sb-name">${SITE.name}</div>
+    <div class="sb-role">${SITE.role}</div>
+    <div class="sb-status"><div class="sb-dot"></div><span>${SITE.status}</span></div>
+    <div class="sb-divider"></div>
+    <div class="sb-label">Navigate</div>
+    <ul class="sb-nav">
+      <li><a href="index.html" class="active"><span class="nav-dot"></span>Home</a></li>
+      <li><a href="#skills"><span class="nav-dot"></span>Skills</a></li>
+      <li><a href="#projects"><span class="nav-dot"></span>Projects</a></li>
+      <li><a href="#experience"><span class="nav-dot"></span>Experience</a></li>
+      <li><a href="blog.html"><span class="nav-dot"></span>Blog</a></li>
+      <li><a href="#contact"><span class="nav-dot"></span>Contact</a></li>
+    </ul>
+    <div class="sb-divider"></div>
+    <div class="sb-label">Skills</div>
+    <div class="sb-mini-list">
+      ${SITE.skills.map(s=>`<span>${s.name}</span>`).join('')}
+    </div>
+    <div class="sb-divider"></div>
+    <div class="sb-label">Contact</div>
+    <div class="sb-contact">
+      ${SITE.contact.map(c=>`
+        <a href="${c.href}" ${c.href.startsWith('http')?'target="_blank"':''}>
+          <span class="sb-contact-label">${c.label}</span>
+          ${c.value}
+        </a>`).join('')}
+    </div>`;
+
+  /* ── MAIN ── */
+  document.getElementById('main').innerHTML = `
+
+    <!-- HERO -->
+    <div class="section-gap">
+      <div class="page-eyebrow fade-in">IT Infrastructure · ${SITE.location}</div>
+      <h1 class="page-title fade-in-2">${SITE.name}</h1>
+      <div class="page-rule"></div>
+      <p class="hero-bio fade-in-3">${SITE.bio}</p>
+      <div style="display:flex;gap:12px;" class="fade-in-3">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section-gap" id="skills">
+      <div class="section-label">01 · Skills &amp; Certifications</div>
+      <div class="skills-grid">
+        ${SITE.skills.map(s=>`
+          <div class="card" style="padding:22px 20px;">
+            <div class="skill-cat">${s.cat}</div>
+            <div class="skill-name">${s.name}</div>
+            <p class="skill-desc">${s.desc}</p>
+            ${pills(s.pills)}
+          </div>`).join('')}
+      </div>
+      <div class="cert-row">
+        ${SITE.certs.map((c,i)=>`
+          <div class="cert-item ${i===0?'on':''}">
+            <div class="cdot ${c.live?'live':''}"></div>
+            <div>
+              <div class="cert-name">${c.name}</div>
+              <div class="cert-sub">${c.sub}</div>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section-gap" id="projects">
+      <div class="section-label">02 · Projects</div>
+      <div class="projects-grid">
+        ${SITE.projects.map(p=>`
+          <div class="card">
+            <div class="project-id">${p.id}</div>
+            <div class="project-name">${p.name}</div>
+            <p class="project-desc">${p.desc}</p>
+            ${pills(p.pills)}
+          </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section-gap" id="experience">
+      <div class="section-label">03 · Experience</div>
+      <div class="exp-timeline">
+        ${SITE.experience.map(e=>`
+          <div class="exp-item">
+            <div>
+              <span class="exp-period">${e.period}</span>
+              <div class="exp-company">${e.company}</div>
+              <div class="exp-loc">${e.location}</div>
+            </div>
+            <div>
+              <div class="exp-role">${e.role}</div>
+              <ul class="exp-list">
+                ${e.bullets.map(b=>`<li>${b}</li>`).join('')}
+              </ul>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- BLOG PREVIEW -->
+    <div class="section-gap" id="blog">
+      <div class="section-label">04 · Latest Posts</div>
+      <div class="blog-preview-grid">
+        ${SITE.blog.map(b=>`
+          <a href="${b.href}" class="blog-preview-card">
+            <span class="bp-date">${b.date}</span>
+            <span class="bp-tag">${b.tag}</span>
+            <div class="bp-title">${b.title}</div>
+            <p class="bp-excerpt">${b.excerpt}</p>
+          </a>`).join('')}
+      </div>
+      <a href="blog.html" class="view-all">View all posts &rarr;</a>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact">
+      <div class="section-label">05 · Contact</div>
+      <div class="contact-grid">
+        <div>
+          <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--light);line-height:1.15;margin-bottom:12px;">Open to new<br>opportunities.</h2>
+          <p style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:24px;">Available for remote IT support, help desk, and data center roles. Always happy to talk networking, homelab builds, or anything infrastructure-related.</p>
+          <div class="contact-links">
+            ${SITE.contact.map(c=>`
+              <a href="${c.href}" class="contact-link" ${c.href.startsWith('http')?'target="_blank"':''}>
+                <span class="cl-label">${c.label}</span>
+                <span>${c.value}</span>
+              </a>`).join('')}
+          </div>
+        </div>
+        <div class="avail-card">
+          <div class="avail-hdr">// availability</div>
+          <div class="avail-status">
+            <div class="avail-dot"></div>
+            <div class="avail-status-text">${SITE.status}</div>
+          </div>
+          <div class="avail-roles">
+            ${SITE.openRoles.map(r=>`<div class="avail-role">${r}</div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:64px;"></div>`;
+</script>
+</body>
+</html>
