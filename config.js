@@ -1,9 +1,9 @@
 const SITE = {
 
   /* ── PERSONAL INFO ──────────────────────────────────────── */
-  name:     "Joseph Sousa",
+  name:     "Joseph Reyes",
   role:     "Data Center · Networking · Homelab",
-  location: "Santa Clara, CA",
+  location: "Campbell, CA",
   bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems — from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
   status:   "Open to work",
 
