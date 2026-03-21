@@ -9,7 +9,7 @@ const SITE = {
 
   /* ── CONTACT LINKS ──────────────────────────────────────── */
   contact: [
-    { label: "Email",    value: "joseph@homelabhustle.com",          href: "mailto:you@yourdomain.com" },
+    { label: "Email",    value: "joseph@homelabhustle.com",          href: "joseph@homelabhustle.com" },
     { label: "LinkedIn", value: "linkedin.com/in/yourprofile", href: "https://linkedin.com/in/yourprofile" },
     { label: "GitHub",   value: "github.com/yourhandle",       href: "https://github.com/yourhandle" },
   ],
