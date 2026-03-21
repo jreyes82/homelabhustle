@@ -94,13 +94,10 @@ body {
 #drawer.open { transform: translateX(0); }
 
 .drawer-avatar {
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 1px solid var(--bord2);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif); font-size: 15px; font-weight: 700;
-  color: var(--acc2); margin-bottom: 12px;
+  width: 120px; height: 72px;
+  display: block;
+  margin-bottom: 12px;
+  flex-shrink: 0;
 }
 
 .drawer-name {
@@ -250,21 +247,18 @@ body {
 
   #topbar { display: none; }
   #drawer {
-  position: sticky;
-  top: 0;
-  width: 260px;
-  min-width: 260px;
-  height: 100vh;
-  overflow-y: auto;
-  transform: translateX(0) !important;
-  background: var(--bg2);
-  border-right: 1px solid var(--border);
-  border-top: none;
-  padding: 32px 24px;
-  display: flex !important;
-  flex-direction: column;
-  transition: none !important;
-}
+    position: sticky; top: 0;
+    width: 220px; min-width: 220px;
+    height: 100vh; overflow-y: auto;
+    transform: none !important;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    border-top: none;
+    padding: 32px 24px;
+    flex-direction: column;
+    display: flex;
+    transition: none;
+  }
 
   /* On desktop, show sidebar-style nav instead of drawer nav */
   .drawer-nav a { font-size: 13px; padding: 7px 10px; }
