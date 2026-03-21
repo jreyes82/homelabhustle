@@ -128,28 +128,6 @@ const SITE = {
   /* ── BLOG POSTS ─────────────────────────────────────────── */
   /* To add a post: copy one block, paste it at the TOP of the array, update the fields */
   /* For href, use the path to your post file e.g. "posts/vlan-segmentation.html"       */
-  blog: [
-    {
-      date:    "Coming soon",
-      tag:     "Networking",
-      title:   "VLAN Segmentation on the UCG-Fiber: Moving Off Native",
-      excerpt: "Walking through my home network segmentation project — isolating IoT, trusted, and lab gear into separate VLANs using the UniFi Network app.",
-      href:    "#",
-    },
-    {
-      date:    "Coming soon",
-      tag:     "Self-Hosted",
-      title:   "Self-Hosting Matrix: From VPS to Full Stack",
-      excerpt: "How I deployed Matrix Synapse, Element, and Jitsi on a RackNerd VPS with Cloudflare Zero Trust for a private group communication server.",
-      href:    "#",
-    },
-    {
-      date:    "Coming soon",
-      tag:     "Study Notes",
-      title:   "Network+ Notes: Subnetting Without the Headache",
-      excerpt: "The patterns I use to calculate subnets, host counts, and CIDRs quickly — built from my Calbright College exam prep sessions.",
-      href:    "#",
-    },
-  ],
+  blog: [],
 
 };
