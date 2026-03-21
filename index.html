@@ -302,24 +302,6 @@
     </div>
   </div>
 
-  <!-- CONTACT — mobile hero position -->
-  <div class="section-gap" id="contact">
-    <div class="section-label">Get In Touch</div>
-    <div class="desktop-contact-grid">
-      <div>
-        <div class="contact-strip" id="contact-links"></div>
-      </div>
-      <div class="avail-card">
-        <div class="avail-hdr">// availability</div>
-        <div class="avail-status">
-          <div class="avail-dot"></div>
-          <div class="avail-status-text" id="avail-status-text"></div>
-        </div>
-        <div class="avail-roles" id="avail-roles"></div>
-      </div>
-    </div>
-  </div>
-
   <!-- PROJECTS -->
   <div class="section-gap" id="projects">
     <div class="section-label">Projects</div>
@@ -368,16 +350,6 @@
   document.getElementById('hero-eyebrow').textContent = 'IT Infrastructure · ' + SITE.location;
   document.getElementById('hero-name').textContent = SITE.name;
   document.getElementById('hero-bio').textContent = SITE.bio;
-
-  document.getElementById('contact-links').innerHTML = SITE.contact.map(c=>`
-    <a href="${c.href}" class="contact-link" ${c.href.startsWith('http')?'target="_blank"':''}>
-      <span class="cl-label">${c.label}</span>
-      <span>${c.value}</span>
-    </a>`).join('');
-
-  document.getElementById('avail-status-text').textContent = SITE.status;
-  document.getElementById('avail-roles').innerHTML = SITE.openRoles.map(r=>`
-    <div class="avail-role">${r}</div>`).join('');
 
   document.getElementById('projects-grid').innerHTML = SITE.projects.map(p=>`
     <div class="card">
