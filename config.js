@@ -55,7 +55,7 @@ const SITE = {
       cat:   "IT Support",
       name:  "Hardware and Troubleshooting",
       desc:  "Desktop and laptop diagnostics, OS installation and imaging, hardware repair, remote support, and end-user troubleshooting across Windows environments.",
-      pills: ["Windows", "Help Desk", "Ticketing", "BIOS/UEFI"],
+      pills: ["Windows", "Hardware", "Remote Desktop", "Imaging", "Help Desk", "Ticketing", "CompTIA A+", "Google IT Support", "Microsoft Intune", "Okta", "Jira", "ITSM"],
     },
   ],
 
