@@ -1,4 +1,10 @@
 /* shared.css — mobile-first */
+@font-face {
+  font-family: 'Operator Mono';
+  src: url('fonts/OperatorMonoSSm-Book.otf') format('opentype');
+  font-weight: 400;
+}
+
 :root {
   --bg:      #090E13;
   --bg2:     #0D1319;
