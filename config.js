@@ -68,7 +68,7 @@ const SITE = {
   { name: "Microsoft Intune",            sub: "Microsoft - Feb 2025",            live: true,  section: "Completed" },
   { name: "Okta Identity Foundations",   sub: "Okta - Feb 2025",                 live: true,  section: "Completed" },
   { name: "CCNA Introduction",           sub: "Cisco Networking Academy - 2017", live: true,  section: "Completed" },
-],
+  ],
 
   /* ── PROJECTS ───────────────────────────────────────────── */
   projects: [
