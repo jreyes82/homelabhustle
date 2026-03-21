@@ -119,6 +119,7 @@ body {
 
 .drawer-status {
   display: flex; align-items: center; gap: 7px; margin-bottom: 24px;
+  justify-content: center;
 }
 
 .drawer-dot {
