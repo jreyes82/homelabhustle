@@ -61,13 +61,13 @@ const SITE = {
 
   /* ââ CERTIFICATIONS âââââââââââââââââââââââââââââââââââââââ */
   certs: [
-    { name: "CompTIA Network+",            sub: "In Progress Â· Calbright College",  live: false },
-    { name: "CompTIA A+",                  sub: "Completed Â· Sep 2025",             live: true  },
-    { name: "Google IT Support",           sub: "Coursera Â· 2020",                  live: true  },
-    { name: "Atlassian ITSM Professional", sub: "Atlassian Â· Dec 2024",             live: true  },
-    { name: "Microsoft Intune",            sub: "Microsoft Â· Feb 2025",             live: true  },
+    { name: "CompTIA Network+",            sub: "In Progress - Calbright College",  live: false },
+    { name: "CompTIA A+",                  sub: "Completed - Sep 2025",             live: true  },
+    { name: "Google IT Support",           sub: "Coursera - 2020",                  live: true  },
+    { name: "Atlassian ITSM Professional", sub: "Atlassian - Dec 2024",             live: true  },
+    { name: "Microsoft Intune",            sub: "Microsoft - Feb 2025",             live: true  },
     { name: "Okta Identity Foundations",   sub: "Okta Â· Feb 2025",                  live: true  },
-    { name: "CCNA Introduction",           sub: "Cisco Networking Academy Â· 2017",  live: true  },
+    { name: "CCNA Introduction",           sub: "Cisco Networking Academy - 2017",  live: true  },
   ],
 
   /* ââ PROJECTS âââââââââââââââââââââââââââââââââââââââââââââ */
