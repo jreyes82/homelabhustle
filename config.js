@@ -101,7 +101,7 @@ const SITE = {
   /* ââ EXPERIENCE âââââââââââââââââââââââââââââââââââââââââââ */
   experience: [
     {
-      period:   "2021 â 2023",
+      period:   "2021 - 2023",
       company:  "OpenCOLO",
       location: "Santa Clara, CA",
       role:     "Data Center Technician",
@@ -113,7 +113,7 @@ const SITE = {
       ],
     },
     {
-      period:   "2016 â 2020",
+      period:   "2016 - 2020",
       company:  "Pointz Taken",
       location: "San Jose, CA",
       role:     "IT Consultant",
