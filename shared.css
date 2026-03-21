@@ -18,9 +18,9 @@
   --accent:  #3A7EAA;
   --acc2:    #5BA3CC;
   --light:   #E8F2FA;
-  --serif:   'Playfair Display', Georgia, serif;
-  --mono:    'IBM Plex Mono', monospace;
-  --sans:    'IBM Plex Sans', system-ui, sans-serif;
+  --serif: 'Operator Mono', monospace;
+  --mono:  'Operator Mono', monospace;
+  --sans:  'Operator Mono', monospace;
   --topbar:  52px;
 }
 
