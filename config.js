@@ -1,20 +1,20 @@
 const SITE = {
 
-  /* ── PERSONAL INFO ──────────────────────────────────────── */
+  /* ââ PERSONAL INFO ââââââââââââââââââââââââââââââââââââââââ */
   name:     "Joseph Reyes",
-  role:     "Data Center · IT Support · Homelab",
+  role:     "Data Center Â· IT Support Â· Homelab",
   location: "Campbell, CA",
-  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems — from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
+  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems â from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
   status:   "Open to work",
 
-  /* ── CONTACT LINKS ──────────────────────────────────────── */
+  /* ââ CONTACT LINKS ââââââââââââââââââââââââââââââââââââââââ */
   contact: [
     { label: "Email",    value: "joseph@homelabhustle.com",            href: "mailto:joseph@homelabhustle.com" },
     { label: "LinkedIn", value: "linkedin.com/in/jreyes1982",          href: "https://www.linkedin.com/in/jreyes1982/" },
     { label: "GitHub",   value: "github.com/jreyes82",                 href: "https://github.com/jreyes82" },
   ],
 
-  /* ── ROLES YOU'RE OPEN TO ───────────────────────────────── */
+  /* ââ ROLES YOU'RE OPEN TO âââââââââââââââââââââââââââââââââ */
   openRoles: [
     "Remote IT Support",
     "Help Desk (L1 / L2)",
@@ -22,7 +22,7 @@ const SITE = {
     "Junior Network Engineer",
   ],
 
-  /* ── STATS (hero card) ──────────────────────────────────── */
+  /* ââ STATS (hero card) ââââââââââââââââââââââââââââââââââââ */
   stats: [
     { key: "Experience",    value: "7+ yrs" },
     { key: "Location",      value: "Campbell, CA" },
@@ -31,7 +31,7 @@ const SITE = {
     { key: "Status",        value: "Open to work", blue: true },
   ],
 
-  /* ── SKILLS ─────────────────────────────────────────────── */
+  /* ââ SKILLS âââââââââââââââââââââââââââââââââââââââââââââââ */
   skills: [
     {
       cat:   "Networking",
@@ -59,18 +59,18 @@ const SITE = {
     },
   ],
 
-  /* ── CERTIFICATIONS ─────────────────────────────────────── */
+  /* ââ CERTIFICATIONS âââââââââââââââââââââââââââââââââââââââ */
   certs: [
-    { name: "CompTIA Network+",            sub: "In Progress · Calbright College",  live: false },
-    { name: "CompTIA A+",                  sub: "Completed · Sep 2025",             live: true  },
-    { name: "Google IT Support",           sub: "Coursera · 2020",                  live: true  },
-    { name: "Atlassian ITSM Professional", sub: "Atlassian · Dec 2024",             live: true  },
-    { name: "Microsoft Intune",            sub: "Microsoft · Feb 2025",             live: true  },
-    { name: "Okta Identity Foundations",   sub: "Okta · Feb 2025",                  live: true  },
-    { name: "CCNA Introduction",           sub: "Cisco Networking Academy · 2017",  live: true  },
+    { name: "CompTIA Network+",            sub: "In Progress Â· Calbright College",  live: false },
+    { name: "CompTIA A+",                  sub: "Completed Â· Sep 2025",             live: true  },
+    { name: "Google IT Support",           sub: "Coursera Â· 2020",                  live: true  },
+    { name: "Atlassian ITSM Professional", sub: "Atlassian Â· Dec 2024",             live: true  },
+    { name: "Microsoft Intune",            sub: "Microsoft Â· Feb 2025",             live: true  },
+    { name: "Okta Identity Foundations",   sub: "Okta Â· Feb 2025",                  live: true  },
+    { name: "CCNA Introduction",           sub: "Cisco Networking Academy Â· 2017",  live: true  },
   ],
 
-  /* ── PROJECTS ───────────────────────────────────────────── */
+  /* ââ PROJECTS âââââââââââââââââââââââââââââââââââââââââââââ */
   projects: [
     {
       id:    "Project 01",
@@ -87,7 +87,7 @@ const SITE = {
     {
       id:    "Project 03",
       name:  "Media Automation Stack",
-      desc:  "Full media pipeline running on Windows 11 via Docker — Sonarr, Prowlarr, Overseerr, and Plex. Managed through Portainer, remotely accessible via Cloudflare tunnel and Apache Guacamole.",
+      desc:  "Full media pipeline running on Windows 11 via Docker â Sonarr, Prowlarr, Overseerr, and Plex. Managed through Portainer, remotely accessible via Cloudflare tunnel and Apache Guacamole.",
       pills: ["Plex", "Sonarr", "Prowlarr", "Portainer", "Guacamole"],
     },
     {
@@ -98,10 +98,10 @@ const SITE = {
     },
   ],
 
-  /* ── EXPERIENCE ─────────────────────────────────────────── */
+  /* ââ EXPERIENCE âââââââââââââââââââââââââââââââââââââââââââ */
   experience: [
     {
-      period:   "2021 – 2023",
+      period:   "2021 â 2023",
       company:  "OpenCOLO",
       location: "Santa Clara, CA",
       role:     "Data Center Technician",
@@ -113,7 +113,7 @@ const SITE = {
       ],
     },
     {
-      period:   "2016 – 2020",
+      period:   "2016 â 2020",
       company:  "Pointz Taken",
       location: "San Jose, CA",
       role:     "IT Consultant",
@@ -125,9 +125,17 @@ const SITE = {
     },
   ],
 
-  /* ── BLOG POSTS ─────────────────────────────────────────── */
+  /* ââ BLOG POSTS âââââââââââââââââââââââââââââââââââââââââââ */
   /* To add a post: copy one block, paste it at the TOP of the array, update the fields */
   /* For href, use the path to your post file e.g. "posts/vlan-segmentation.html"       */
-  blog: [],
+  blog: [
+    {
+      date:    "March 2026",
+      tag:     "Homelab",
+      title:   "homelabbing.....oh my!",
+      excerpt: "homelabbing.....oh my!",
+      href:    "posts/homelabbingoh-my.html",
+    },
+  ],
 
-};
+};;
