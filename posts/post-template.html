@@ -3,50 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- EDIT: Change this to your post title -->
+<!-- EDIT: Change to your post title -->
 <title>Post Title — Homelab Hustle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared.css">
 <style>
   .post-meta {
-    display: flex; align-items: center; gap: 16px;
-    margin-bottom: 32px; flex-wrap: wrap;
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px; flex-wrap: wrap;
   }
 
   .post-tag {
-    font-family: var(--mono); font-size: 9px;
-    letter-spacing: .14em; text-transform: uppercase;
-    color: var(--acc2); padding: 3px 9px;
-    border: 1px solid rgba(58,126,170,.3);
+    font-family: var(--mono); font-size: 9px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--acc2);
+    padding: 3px 9px; border: 1px solid rgba(58,126,170,.3);
   }
 
   .post-date {
-    font-family: var(--mono); font-size: 9px;
-    letter-spacing: .12em; text-transform: uppercase; color: var(--faint);
+    font-family: var(--mono); font-size: 9px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--faint);
   }
 
   .post-read {
-    font-family: var(--mono); font-size: 9px;
-    letter-spacing: .1em; color: var(--faint);
+    font-family: var(--mono); font-size: 9px; letter-spacing: .1em; color: var(--faint);
   }
 
+  /* ── POST BODY ── */
   .post-body {
-    max-width: 680px;
     font-size: 15px; font-weight: 300;
     color: var(--text); line-height: 1.9;
   }
 
   .post-body h2 {
-    font-family: var(--serif); font-size: 22px;
-    font-weight: 700; color: var(--light);
-    margin: 40px 0 14px; line-height: 1.2;
+    font-family: var(--serif); font-size: 22px; font-weight: 700;
+    color: var(--light); margin: 36px 0 12px; line-height: 1.2;
   }
 
   .post-body h3 {
-    font-family: var(--serif); font-size: 17px;
-    font-weight: 700; color: var(--light);
-    margin: 28px 0 10px;
+    font-family: var(--serif); font-size: 17px; font-weight: 700;
+    color: var(--light); margin: 24px 0 8px;
   }
 
   .post-body p { margin-bottom: 18px; }
@@ -55,61 +51,54 @@
     padding-left: 20px; margin-bottom: 18px;
   }
 
-  .post-body li { margin-bottom: 6px; color: var(--text); }
+  .post-body li { margin-bottom: 6px; }
 
-  .post-body a { color: var(--acc2); text-decoration: none; border-bottom: 1px solid rgba(91,163,204,.3); }
+  .post-body a {
+    color: var(--acc2); text-decoration: none;
+    border-bottom: 1px solid rgba(91,163,204,.3);
+  }
+
   .post-body a:hover { border-bottom-color: var(--acc2); }
 
   /* Code blocks */
   .post-body pre {
-    background: var(--bg2);
-    border: 1px solid var(--border);
+    background: var(--bg2); border: 1px solid var(--border);
     border-left: 3px solid var(--accent);
-    padding: 18px 20px;
-    overflow-x: auto;
-    margin: 20px 0;
-    border-radius: 0;
+    padding: 16px; overflow-x: auto; margin: 20px 0;
   }
 
   .post-body code {
-    font-family: var(--mono);
-    font-size: 12px; color: var(--acc2);
-    line-height: 1.7;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--acc2); line-height: 1.7;
   }
 
-  /* Inline code */
   .post-body p code, .post-body li code {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    padding: 1px 6px;
-    font-size: 12px; color: var(--acc2);
+    background: var(--bg2); border: 1px solid var(--border);
+    padding: 1px 6px; font-size: 12px; color: var(--acc2);
   }
 
-  /* Callout / note box */
+  /* Note box */
   .note {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: var(--surface); border: 1px solid var(--border);
     border-left: 3px solid var(--acc2);
-    padding: 16px 20px;
-    margin: 20px 0;
+    padding: 14px 18px; margin: 20px 0;
     font-size: 13px; color: var(--muted);
   }
 
   .note strong { color: var(--acc2); font-weight: 500; }
 
-  /* Post footer nav */
+  /* Post footer */
   .post-footer {
-    display: flex; justify-content: space-between;
-    align-items: center;
-    padding-top: 40px; margin-top: 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 36px; margin-top: 44px;
     border-top: 1px solid var(--border);
+    flex-wrap: wrap; gap: 12px;
   }
 
   .post-back {
-    font-family: var(--mono); font-size: 9px;
-    letter-spacing: .12em; text-transform: uppercase;
-    color: var(--muted); text-decoration: none;
-    transition: color .2s;
+    font-family: var(--mono); font-size: 9px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted);
+    text-decoration: none; transition: color .2s;
   }
 
   .post-back:hover { color: var(--acc2); }
@@ -119,86 +108,103 @@
 </head>
 <body>
 <script src="../config.js"></script>
-<div id="sidebar"></div>
+
+<header id="topbar">
+  <a href="../index.html" class="topbar-logo" id="topbar-name"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav id="drawer">
+  <div class="drawer-avatar" id="drawer-avatar"></div>
+  <div class="drawer-name" id="drawer-name"></div>
+  <div class="drawer-role" id="drawer-role"></div>
+  <div class="drawer-status">
+    <div class="drawer-dot"></div>
+    <span id="drawer-status"></span>
+  </div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Navigate</div>
+  <ul class="drawer-nav">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Contact</div>
+  <div class="drawer-contact" id="drawer-contact"></div>
+</nav>
+
 <main id="main">
 
-  <!-- ═══════════════════════════════════════════════════════
-       EDIT BELOW THIS LINE
-       ═══════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════
+       EDIT EVERYTHING BELOW THIS LINE
+       ═══════════════════════════════════════════ -->
 
-  <!-- EDIT: post tag -->
+  <!-- EDIT: category label -->
   <div class="page-eyebrow">Networking</div>
 
   <!-- EDIT: post title -->
   <h1 class="page-title">Your Post Title Here</h1>
   <div class="page-rule"></div>
 
-  <!-- EDIT: date, tag, read time -->
+  <!-- EDIT: tag, date, read time -->
   <div class="post-meta">
     <span class="post-tag">Networking</span>
     <span class="post-date">March 2025</span>
     <span class="post-read">5 min read</span>
   </div>
 
-  <!-- ── POST CONTENT ── -->
+  <!-- ── POST CONTENT — write your post here ── -->
   <div class="post-body">
 
     <p>
-      Write your intro paragraph here. Explain what the post is about and
-      why you decided to tackle this topic.
+      Write your intro paragraph here. Explain what the post is about
+      and why you decided to tackle this.
     </p>
 
     <h2>Section Heading</h2>
 
     <p>
-      Write your content here. You can have as many paragraphs as you want.
-      Keep sentences clear and direct — write like you're explaining it to
-      a colleague.
+      Your content here. Write like you're explaining it to a colleague —
+      clear and direct.
     </p>
 
-    <!-- Code block example -->
+    <!-- Code block -->
     <pre><code># Example command or config
 show ip route
 interface vlan 10
   ip address 192.168.10.1 255.255.255.0</code></pre>
 
-    <p>
-      Explain what the code above does. Walk through any important details.
-    </p>
+    <p>Explain what the code above does.</p>
 
-    <!-- Bullet list example -->
+    <!-- Bullet list -->
     <ul>
-      <li>First point or step</li>
-      <li>Second point or step</li>
-      <li>Third point or step</li>
+      <li>First point</li>
+      <li>Second point</li>
+      <li>Third point</li>
     </ul>
 
-    <!-- Note/callout box example -->
+    <!-- Note/callout box -->
     <div class="note">
-      <strong>Note:</strong> Add any important warnings, tips, or
-      things to watch out for here.
+      <strong>Note:</strong> Add warnings, tips, or gotchas here.
     </div>
-
-    <h2>Another Section</h2>
-
-    <p>
-      Continue writing here. Add as many sections as you need.
-      Delete any sections you don't use.
-    </p>
 
     <h2>Wrap Up</h2>
 
     <p>
-      Summarize what you did and what you learned. Link to any
-      related posts or resources if relevant.
+      Summarize what you did and what you learned.
     </p>
 
   </div>
 
-  <!-- ── POST FOOTER ── -->
+  <!-- POST FOOTER — EDIT tags -->
   <div class="post-footer">
     <a href="../blog.html" class="post-back">&larr; Back to blog</a>
-    <!-- EDIT: update tags to match your post -->
     <div class="post-tags">
       <span class="pill">UniFi</span>
       <span class="pill">VLAN</span>
@@ -206,37 +212,35 @@ interface vlan 10
     </div>
   </div>
 
-  <div style="height:64px;"></div>
-
+  <div style="height:48px;"></div>
 </main>
 
 <script>
   const initials = SITE.name.split(' ').map(w=>w[0]).join('');
-  document.getElementById('sidebar').innerHTML = `
-    <div class="sb-avatar">${initials}</div>
-    <div class="sb-name">${SITE.name}</div>
-    <div class="sb-role">${SITE.role}</div>
-    <div class="sb-status"><div class="sb-dot"></div><span>${SITE.status}</span></div>
-    <div class="sb-divider"></div>
-    <div class="sb-label">Navigate</div>
-    <ul class="sb-nav">
-      <li><a href="../index.html"><span class="nav-dot"></span>Home</a></li>
-      <li><a href="../index.html#skills"><span class="nav-dot"></span>Skills</a></li>
-      <li><a href="../index.html#projects"><span class="nav-dot"></span>Projects</a></li>
-      <li><a href="../index.html#experience"><span class="nav-dot"></span>Experience</a></li>
-      <li><a href="../blog.html" class="active"><span class="nav-dot"></span>Blog</a></li>
-      <li><a href="../index.html#contact"><span class="nav-dot"></span>Contact</a></li>
-    </ul>
-    <div class="sb-divider"></div>
-    <div class="sb-label">Contact</div>
-    <div class="sb-contact">
-      ${SITE.contact.map(c=>`
-        <a href="${c.href}" ${c.href.startsWith('http')?'target="_blank"':''}>
-          <span class="sb-contact-label">${c.label}</span>
-          ${c.value}
-        </a>`).join('')}
-    </div>`;
+  document.getElementById('topbar-name').textContent = SITE.name;
+  document.getElementById('drawer-avatar').textContent = initials;
+  document.getElementById('drawer-name').textContent = SITE.name;
+  document.getElementById('drawer-role').textContent = SITE.role;
+  document.getElementById('drawer-status').textContent = SITE.status;
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>`
+    <a href="${c.href}" ${c.href.startsWith('http')?'target="_blank"':''}>
+      <span class="drawer-contact-label">${c.label}</span>${c.value}
+    </a>`).join('');
+
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
 </script>
 </body>
 </html>
-
