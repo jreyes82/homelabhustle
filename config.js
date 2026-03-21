@@ -61,10 +61,13 @@ const SITE = {
 
   /* ── CERTIFICATIONS ─────────────────────────────────────── */
   certs: [
-    { name: "CompTIA Network+",       sub: "In Progress · Calbright College", live: false },
-    { name: "CompTIA A+",             sub: "Completed · Calbright College",   live: true  },
-    { name: "Data Center Operations", sub: "OpenCOLO · 2021–2023",            live: true  },
-    { name: "IT Consulting",          sub: "Pointz Taken · 2016–2020",        live: true  },
+    { name: "CompTIA Network+",            sub: "In Progress · Calbright College",  live: false },
+    { name: "CompTIA A+",                  sub: "Completed · Sep 2025",             live: true  },
+    { name: "Google IT Support",           sub: "Coursera · 2020",                  live: true  },
+    { name: "Atlassian ITSM Professional", sub: "Atlassian · Dec 2024",             live: true  },
+    { name: "Microsoft Intune",            sub: "Microsoft · Feb 2025",             live: true  },
+    { name: "Okta Identity Foundations",   sub: "Okta · Feb 2025",                  live: true  },
+    { name: "CCNA Introduction",           sub: "Cisco Networking Academy · 2017",  live: true  },
   ],
 
   /* ── PROJECTS ───────────────────────────────────────────── */
