@@ -61,14 +61,14 @@ const SITE = {
 
   /* ── CERTIFICATIONS ─────────────────────────────────────── */
   certs: [
-    { name: "CompTIA Network+",            sub: "In Progress - Calbright College", live: false },
-    { name: "CompTIA A+",                  sub: "Completed - Sep 2025",            live: true  },
-    { name: "Google IT Support",           sub: "Coursera - 2020",                 live: true  },
-    { name: "Atlassian ITSM Professional", sub: "Atlassian - Dec 2024",            live: true  },
-    { name: "Microsoft Intune",            sub: "Microsoft - Feb 2025",            live: true  },
-    { name: "Okta Identity Foundations",   sub: "Okta - Feb 2025",                 live: true  },
-    { name: "CCNA Introduction",           sub: "Cisco Networking Academy - 2017", live: true  },
-  ],
+  { name: "CompTIA Network+",            sub: "In Progress - Calbright College", live: false, section: "In Progress" },
+  { name: "CompTIA A+",                  sub: "Completed - Sep 2025",            live: true,  section: "Completed" },
+  { name: "Google IT Support",           sub: "Coursera - 2020",                 live: true,  section: "Completed" },
+  { name: "Atlassian ITSM Professional", sub: "Atlassian - Dec 2024",            live: true,  section: "Completed" },
+  { name: "Microsoft Intune",            sub: "Microsoft - Feb 2025",            live: true,  section: "Completed" },
+  { name: "Okta Identity Foundations",   sub: "Okta - Feb 2025",                 live: true,  section: "Completed" },
+  { name: "CCNA Introduction",           sub: "Cisco Networking Academy - 2017", live: true,  section: "Completed" },
+],
 
   /* ── PROJECTS ───────────────────────────────────────────── */
   projects: [
