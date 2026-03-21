@@ -63,7 +63,7 @@ const SITE = {
   /* ── CERTIFICATIONS ─────────────────────────────────────── */
   certs: [
     { name: "CompTIA Network+",       sub: "In Progress · Calbright College", live: false },
-    { name: "CompTIA A+",             sub: "Completed · Calbright College", live: false },
+    { name: "CompTIA A+",             sub: "Completed · Calbright College", live: true },
     { name: "Data Center Operations", sub: "OpenCOLO · 2021–2023",            live: true  },
     { name: "IT Consulting",          sub: "Pointz Taken · 2016–2020",        live: true  },
   ],
