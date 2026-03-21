@@ -218,7 +218,7 @@ interface vlan 10
 <script>
   const initials = SITE.name.split(' ').map(w=>w[0]).join('');
   document.getElementById('topbar-name').textContent = SITE.name;
-  document.getElementById('drawer-avatar').textContent = initials;
+  document.getElementById('drawer-avatar').innerHTML = '<img src="../logo.svg" alt="Homelab Hustle" style="width:120px;height:72px;">';
   document.getElementById('drawer-name').textContent = SITE.name;
   document.getElementById('drawer-role').textContent = SITE.role;
   document.getElementById('drawer-status').textContent = SITE.status;
