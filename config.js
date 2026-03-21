@@ -43,7 +43,7 @@ const SITE = {
       cat:   "Data Center",
       name:  "Colocation Ops",
       desc:  "Physical infrastructure, BMS and EPMS systems, SSH access management, rack & stack, and fiber patching.",
-      pills: ["BMS", "EPMS", "SSH", "Fiber"],
+      pills: ["BMS", "IPMI", "SSH", "Fiber"],
     },
     {
       cat:   "Homelab",
@@ -52,10 +52,10 @@ const SITE = {
       pills: ["Docker", "Linux", "Cloudflare", "Portainer"],
     },
     {
-      cat:   "Development",
-      name:  "Scripting & Tooling",
-      desc:  "Python automation, Node.js, React, REST API integration, SQLite, and custom network monitoring tooling.",
-      pills: ["Python", "Node.js", "React", "SQLite"],
+      cat:   "IT Support",
+      name:  "Hardware and Troubleshooting",
+      desc:  "Desktop and laptop diagnostics, OS installation and imaging, hardware repair, remote support, and end-user troubleshooting across Windows environments.",
+      pills: ["Windows", "Help Desk", "Ticketing", "BIOS/UEFI"],
     },
   ],
 
