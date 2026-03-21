@@ -8,81 +8,95 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
+  /* ── HERO ── */
   .hero-bio {
-    font-size: 15px; font-weight: 300;
-    color: var(--text); line-height: 1.85;
-    margin-bottom: 28px;
-    border-left: 2px solid var(--accent);
-    padding-left: 16px;
+    font-size: 14px; font-weight: 300; color: var(--text);
+    line-height: 1.85; margin-bottom: 24px;
+    border-left: 2px solid var(--accent); padding-left: 14px;
   }
 
+  .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+
+  /* ── CONTACT STRIP (mobile hero) ── */
+  .contact-strip {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-bottom: 0;
+  }
+
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 16px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    text-decoration: none; color: var(--text); font-size: 13px;
+    transition: border-left-color .2s, color .2s;
+  }
+
+  .contact-link:hover { border-left-color: var(--accent); color: var(--acc2); }
+  .cl-label {
+    font-family: var(--mono); font-size: 8px; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--accent);
+  }
+
+  /* ── SKILLS ── */
   .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px; background: var(--border);
-    margin-bottom: 12px;
+    display: grid; grid-template-columns: 1fr;
+    gap: 1px; background: var(--border); margin-bottom: 12px;
   }
 
   .skill-cat {
-    font-family: var(--mono);
-    font-size: 8px; letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--accent); margin-bottom: 6px;
+    font-family: var(--mono); font-size: 8px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
   }
 
   .skill-name {
-    font-family: var(--serif);
-    font-size: 15px; font-weight: 700;
+    font-family: var(--serif); font-size: 16px; font-weight: 700;
     color: var(--light); margin-bottom: 6px;
   }
 
-  .skill-desc { font-size: 11px; color: var(--muted); line-height: 1.6; }
+  .skill-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
-  .cert-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  /* ── CERTS ── */
+  .cert-row { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
 
   .cert-item {
     display: flex; align-items: center; gap: 8px;
-    padding: 10px 14px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--border);
-    transition: border-left-color .2s;
+    padding: 11px 14px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--border); transition: border-left-color .2s;
   }
 
   .cert-item:hover, .cert-item.on { border-left-color: var(--accent); }
-
   .cdot { width: 6px; height: 6px; border-radius: 50%; background: var(--faint); flex-shrink: 0; }
   .cdot.live { background: var(--acc2); box-shadow: 0 0 5px rgba(91,163,204,.4); }
-
-  .cert-name { font-size: 11px; font-weight: 500; color: var(--text); }
+  .cert-name { font-size: 12px; font-weight: 500; color: var(--text); }
   .cert-sub {
-    font-family: var(--mono); font-size: 8px;
-    letter-spacing: .08em; color: var(--faint);
-    text-transform: uppercase; margin-top: 1px;
+    font-family: var(--mono); font-size: 8px; letter-spacing: .08em;
+    color: var(--faint); text-transform: uppercase; margin-top: 1px;
   }
 
+  /* ── PROJECTS ── */
   .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: grid; grid-template-columns: 1fr;
     gap: 1px; background: var(--border);
   }
 
   .project-id {
-    font-family: var(--mono); font-size: 8px;
-    letter-spacing: .2em; color: var(--faint); margin-bottom: 10px;
+    font-family: var(--mono); font-size: 8px; letter-spacing: .2em;
+    color: var(--faint); margin-bottom: 8px;
   }
 
   .project-name {
-    font-family: var(--serif); font-size: 17px;
-    font-weight: 700; color: var(--light);
-    margin-bottom: 8px; line-height: 1.25;
+    font-family: var(--serif); font-size: 18px; font-weight: 700;
+    color: var(--light); margin-bottom: 8px; line-height: 1.2;
   }
 
   .project-desc {
-    font-size: 12px; font-weight: 300;
-    color: var(--muted); line-height: 1.7; margin-bottom: 14px;
+    font-size: 13px; font-weight: 300; color: var(--muted);
+    line-height: 1.7; margin-bottom: 12px;
   }
 
+  /* ── EXPERIENCE ── */
   .exp-timeline { display: flex; flex-direction: column; position: relative; }
 
   .exp-timeline::before {
@@ -92,15 +106,11 @@
   }
 
   .exp-item {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 32px; padding: 0 0 44px 24px;
-    position: relative;
+    padding: 0 0 40px 20px; position: relative;
   }
 
   .exp-item::before {
-    content: ''; position: absolute;
-    left: -4px; top: 6px;
+    content: ''; position: absolute; left: -4px; top: 6px;
     width: 9px; height: 9px; border-radius: 50%;
     background: var(--accent); border: 2px solid var(--bg);
   }
@@ -109,25 +119,24 @@
   .exp-item:last-child::before { background: var(--bord2); }
 
   .exp-period {
-    font-family: var(--mono); font-size: 9px;
-    letter-spacing: .12em; color: var(--accent);
-    text-transform: uppercase; display: block; margin-bottom: 5px;
+    font-family: var(--mono); font-size: 9px; letter-spacing: .12em;
+    color: var(--accent); text-transform: uppercase;
+    display: block; margin-bottom: 3px;
   }
 
   .exp-company { font-size: 12px; font-weight: 500; color: var(--text); }
-  .exp-loc { font-family: var(--mono); font-size: 9px; color: var(--faint); margin-top: 2px; }
+  .exp-loc { font-family: var(--mono); font-size: 9px; color: var(--faint); margin-bottom: 10px; }
 
   .exp-role {
-    font-family: var(--serif); font-size: 19px;
-    font-weight: 700; color: var(--light);
-    margin-bottom: 12px; line-height: 1.2;
+    font-family: var(--serif); font-size: 19px; font-weight: 700;
+    color: var(--light); margin-bottom: 10px; line-height: 1.2;
   }
 
   .exp-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
 
   .exp-list li {
-    font-size: 12px; font-weight: 300;
-    color: var(--muted); display: flex; gap: 10px; line-height: 1.6;
+    font-size: 13px; font-weight: 300; color: var(--muted);
+    display: flex; gap: 10px; line-height: 1.6;
   }
 
   .exp-list li::before {
@@ -135,9 +144,9 @@
     flex-shrink: 0; font-family: var(--mono);
   }
 
+  /* ── BLOG PREVIEW ── */
   .blog-preview-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: grid; grid-template-columns: 1fr;
     gap: 1px; background: var(--border);
   }
 
@@ -151,272 +160,292 @@
   .blog-preview-card:hover { background: var(--surf2); border-top-color: var(--accent); }
 
   .bp-date {
-    font-family: var(--mono); font-size: 8px;
-    letter-spacing: .15em; text-transform: uppercase;
-    color: var(--faint); margin-bottom: 6px; display: block;
+    font-family: var(--mono); font-size: 8px; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 5px; display: block;
   }
 
   .bp-tag {
-    font-family: var(--mono); font-size: 8px;
-    letter-spacing: .1em; text-transform: uppercase;
-    color: var(--acc2); padding: 2px 6px;
-    border: 1px solid rgba(58,126,170,.25);
-    display: inline-block; margin-bottom: 10px;
+    font-family: var(--mono); font-size: 8px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--acc2); padding: 2px 6px;
+    border: 1px solid rgba(58,126,170,.25); display: inline-block; margin-bottom: 8px;
   }
 
   .bp-title {
-    font-family: var(--serif); font-size: 14px;
-    font-weight: 700; color: var(--light);
-    line-height: 1.35; margin-bottom: 8px;
+    font-family: var(--serif); font-size: 15px; font-weight: 700;
+    color: var(--light); line-height: 1.35; margin-bottom: 6px;
   }
 
-  .bp-excerpt { font-size: 11px; font-weight: 300; color: var(--muted); line-height: 1.65; }
+  .bp-excerpt { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.6; }
 
   .view-all {
     display: inline-flex; align-items: center; gap: 6px;
-    margin-top: 16px;
-    font-family: var(--mono); font-size: 10px;
-    letter-spacing: .12em; text-transform: uppercase;
-    color: var(--accent); text-decoration: none;
+    margin-top: 14px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent); text-decoration: none;
     transition: color .2s;
   }
 
   .view-all:hover { color: var(--acc2); }
 
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-  }
-
-  .contact-links { display: flex; flex-direction: column; gap: 8px; }
-
-  .contact-link {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 13px 16px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-left: 3px solid var(--border);
-    text-decoration: none; color: var(--text); font-size: 12px;
-    transition: border-left-color .2s, color .2s;
-  }
-
-  .contact-link:hover { border-left-color: var(--accent); color: var(--acc2); }
-
-  .cl-label {
-    font-family: var(--mono); font-size: 8px;
-    letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
-  }
-
+  /* ── AVAIL CARD ── */
   .avail-card {
-    background: var(--surface); border: 1px solid var(--border); padding: 24px;
+    background: var(--surface); border: 1px solid var(--border); padding: 22px;
+    margin-top: 24px;
   }
 
   .avail-hdr {
-    font-family: var(--mono); font-size: 8px;
-    letter-spacing: .2em; text-transform: uppercase;
-    color: var(--faint); margin-bottom: 18px;
+    font-family: var(--mono); font-size: 8px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 16px;
   }
 
-  .avail-status { display: flex; align-items: center; gap: 9px; margin-bottom: 18px; }
+  .avail-status { display: flex; align-items: center; gap: 9px; margin-bottom: 16px; }
 
   .avail-dot {
     width: 7px; height: 7px; border-radius: 50%;
     background: var(--acc2); box-shadow: 0 0 7px rgba(91,163,204,.45);
-    flex-shrink: 0; animation: pulse 2s ease-in-out infinite;
+    animation: pulse 2s ease-in-out infinite;
   }
 
   .avail-status-text {
-    font-family: var(--serif); font-size: 16px;
-    font-weight: 700; color: var(--light);
+    font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--light);
   }
 
   .avail-roles { display: flex; flex-direction: column; gap: 8px; }
 
   .avail-role {
     display: flex; align-items: center; gap: 9px;
-    font-size: 12px; font-weight: 300; color: var(--muted);
+    font-size: 13px; font-weight: 300; color: var(--muted);
   }
 
   .avail-role::before {
-    content: ''; display: block;
-    width: 14px; height: 1px; background: var(--accent); flex-shrink: 0;
+    content: ''; display: block; width: 14px; height: 1px;
+    background: var(--accent); flex-shrink: 0;
   }
 
-  .section-gap { margin-bottom: 64px; }
+  /* ── DESKTOP OVERRIDES ── */
+  @media (min-width: 768px) {
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr 1fr; }
+    .blog-preview-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .cert-row { flex-direction: row; flex-wrap: wrap; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px; padding-left: 24px;
+    }
+
+    .contact-strip { flex-direction: column; }
+
+    .desktop-contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    }
+  }
 
   @keyframes fadeUp {
-    from { opacity:0; transform:translateY(12px); }
+    from { opacity:0; transform:translateY(10px); }
     to   { opacity:1; transform:translateY(0); }
   }
 
-  .fade-in { animation: fadeUp .5s ease both; }
-  .fade-in-2 { animation: fadeUp .5s ease both .1s; }
-  .fade-in-3 { animation: fadeUp .5s ease both .2s; }
-
-  @media (max-width: 900px) {
-    .skills-grid, .projects-grid, .blog-preview-grid, .contact-grid { grid-template-columns: 1fr; }
-    .exp-item { grid-template-columns: 1fr; gap: 8px; }
-  }
+  .fade-in   { animation: fadeUp .5s ease both .1s; }
+  .fade-in-2 { animation: fadeUp .5s ease both .2s; }
+  .fade-in-3 { animation: fadeUp .5s ease both .3s; }
 </style>
 </head>
 <body>
 <script src="config.js"></script>
-<div id="sidebar"></div>
-<main id="main"></main>
+
+<!-- MOBILE TOP BAR -->
+<header id="topbar">
+  <a href="index.html" class="topbar-logo" id="topbar-name"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- DRAWER / SIDEBAR -->
+<nav id="drawer">
+  <div class="drawer-avatar" id="drawer-avatar"></div>
+  <div class="drawer-name" id="drawer-name"></div>
+  <div class="drawer-role" id="drawer-role"></div>
+  <div class="drawer-status">
+    <div class="drawer-dot"></div>
+    <span id="drawer-status"></span>
+  </div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Navigate</div>
+  <ul class="drawer-nav">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Contact</div>
+  <div class="drawer-contact" id="drawer-contact"></div>
+</nav>
+
+<!-- MAIN -->
+<main id="main">
+
+  <!-- HERO -->
+  <div class="section-gap">
+    <div class="page-eyebrow fade-in" id="hero-eyebrow"></div>
+    <h1 class="page-title fade-in-2" id="hero-name"></h1>
+    <div class="page-rule"></div>
+    <p class="hero-bio fade-in-3" id="hero-bio"></p>
+    <div class="hero-ctas fade-in-3">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-ghost">Contact Me</a>
+    </div>
+  </div>
+
+  <!-- CONTACT — mobile hero position -->
+  <div class="section-gap" id="contact">
+    <div class="section-label">Get In Touch</div>
+    <div class="desktop-contact-grid">
+      <div>
+        <div class="contact-strip" id="contact-links"></div>
+      </div>
+      <div class="avail-card">
+        <div class="avail-hdr">// availability</div>
+        <div class="avail-status">
+          <div class="avail-dot"></div>
+          <div class="avail-status-text" id="avail-status-text"></div>
+        </div>
+        <div class="avail-roles" id="avail-roles"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section-gap" id="projects">
+    <div class="section-label">Projects</div>
+    <div class="projects-grid" id="projects-grid"></div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section-gap" id="skills">
+    <div class="section-label">Skills &amp; Certifications</div>
+    <div class="skills-grid" id="skills-grid"></div>
+    <div class="cert-row" id="cert-row"></div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section-gap" id="experience">
+    <div class="section-label">Experience</div>
+    <div class="exp-timeline" id="exp-timeline"></div>
+  </div>
+
+  <!-- BLOG PREVIEW -->
+  <div class="section-gap" id="blog">
+    <div class="section-label">Latest Posts</div>
+    <div class="blog-preview-grid" id="blog-preview-grid"></div>
+    <a href="blog.html" class="view-all">View all posts &rarr;</a>
+  </div>
+
+</main>
+
 <script>
   document.title = SITE.name + ' — IT Infrastructure';
-
   const initials = SITE.name.split(' ').map(w=>w[0]).join('');
-
   const pills = arr => `<div class="pills">${arr.map(p=>`<span class="pill">${p}</span>`).join('')}</div>`;
 
-  /* ── SIDEBAR ── */
-  document.getElementById('sidebar').innerHTML = `
-    <div class="sb-avatar">${initials}</div>
-    <div class="sb-name">${SITE.name}</div>
-    <div class="sb-role">${SITE.role}</div>
-    <div class="sb-status"><div class="sb-dot"></div><span>${SITE.status}</span></div>
-    <div class="sb-divider"></div>
-    <div class="sb-label">Navigate</div>
-    <ul class="sb-nav">
-      <li><a href="index.html" class="active"><span class="nav-dot"></span>Home</a></li>
-      <li><a href="#skills"><span class="nav-dot"></span>Skills</a></li>
-      <li><a href="#projects"><span class="nav-dot"></span>Projects</a></li>
-      <li><a href="#experience"><span class="nav-dot"></span>Experience</a></li>
-      <li><a href="blog.html"><span class="nav-dot"></span>Blog</a></li>
-      <li><a href="#contact"><span class="nav-dot"></span>Contact</a></li>
-    </ul>
-    <div class="sb-divider"></div>
-    <div class="sb-label">Skills</div>
-    <div class="sb-mini-list">
-      ${SITE.skills.map(s=>`<span>${s.name}</span>`).join('')}
-    </div>
-    <div class="sb-divider"></div>
-    <div class="sb-label">Contact</div>
-    <div class="sb-contact">
-      ${SITE.contact.map(c=>`
-        <a href="${c.href}" ${c.href.startsWith('http')?'target="_blank"':''}>
-          <span class="sb-contact-label">${c.label}</span>
-          ${c.value}
-        </a>`).join('')}
-    </div>`;
+  /* ── POPULATE ── */
+  document.getElementById('topbar-name').textContent = SITE.name;
+  document.getElementById('drawer-avatar').textContent = initials;
+  document.getElementById('drawer-name').textContent = SITE.name;
+  document.getElementById('drawer-role').textContent = SITE.role;
+  document.getElementById('drawer-status').textContent = SITE.status;
 
-  /* ── MAIN ── */
-  document.getElementById('main').innerHTML = `
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>`
+    <a href="${c.href}" ${c.href.startsWith('http')?'target="_blank"':''}>
+      <span class="drawer-contact-label">${c.label}</span>${c.value}
+    </a>`).join('');
 
-    <!-- HERO -->
-    <div class="section-gap">
-      <div class="page-eyebrow fade-in">IT Infrastructure · ${SITE.location}</div>
-      <h1 class="page-title fade-in-2">${SITE.name}</h1>
-      <div class="page-rule"></div>
-      <p class="hero-bio fade-in-3">${SITE.bio}</p>
-      <div style="display:flex;gap:12px;" class="fade-in-3">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+  document.getElementById('hero-eyebrow').textContent = 'IT Infrastructure · ' + SITE.location;
+  document.getElementById('hero-name').textContent = SITE.name;
+  document.getElementById('hero-bio').textContent = SITE.bio;
+
+  document.getElementById('contact-links').innerHTML = SITE.contact.map(c=>`
+    <a href="${c.href}" class="contact-link" ${c.href.startsWith('http')?'target="_blank"':''}>
+      <span class="cl-label">${c.label}</span>
+      <span>${c.value}</span>
+    </a>`).join('');
+
+  document.getElementById('avail-status-text').textContent = SITE.status;
+  document.getElementById('avail-roles').innerHTML = SITE.openRoles.map(r=>`
+    <div class="avail-role">${r}</div>`).join('');
+
+  document.getElementById('projects-grid').innerHTML = SITE.projects.map(p=>`
+    <div class="card">
+      <div class="project-id">${p.id}</div>
+      <div class="project-name">${p.name}</div>
+      <p class="project-desc">${p.desc}</p>
+      ${pills(p.pills)}
+    </div>`).join('');
+
+  document.getElementById('skills-grid').innerHTML = SITE.skills.map(s=>`
+    <div class="card">
+      <div class="skill-cat">${s.cat}</div>
+      <div class="skill-name">${s.name}</div>
+      <p class="skill-desc">${s.desc}</p>
+      ${pills(s.pills)}
+    </div>`).join('');
+
+  document.getElementById('cert-row').innerHTML = SITE.certs.map((c,i)=>`
+    <div class="cert-item ${i===0?'on':''}">
+      <div class="cdot ${c.live?'live':''}"></div>
+      <div>
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-sub">${c.sub}</div>
       </div>
-    </div>
+    </div>`).join('');
 
-    <!-- SKILLS -->
-    <div class="section-gap" id="skills">
-      <div class="section-label">01 · Skills &amp; Certifications</div>
-      <div class="skills-grid">
-        ${SITE.skills.map(s=>`
-          <div class="card" style="padding:22px 20px;">
-            <div class="skill-cat">${s.cat}</div>
-            <div class="skill-name">${s.name}</div>
-            <p class="skill-desc">${s.desc}</p>
-            ${pills(s.pills)}
-          </div>`).join('')}
+  document.getElementById('exp-timeline').innerHTML = SITE.experience.map(e=>`
+    <div class="exp-item">
+      <div>
+        <span class="exp-period">${e.period}</span>
+        <div class="exp-company">${e.company}</div>
+        <div class="exp-loc">${e.location}</div>
       </div>
-      <div class="cert-row">
-        ${SITE.certs.map((c,i)=>`
-          <div class="cert-item ${i===0?'on':''}">
-            <div class="cdot ${c.live?'live':''}"></div>
-            <div>
-              <div class="cert-name">${c.name}</div>
-              <div class="cert-sub">${c.sub}</div>
-            </div>
-          </div>`).join('')}
+      <div>
+        <div class="exp-role">${e.role}</div>
+        <ul class="exp-list">
+          ${e.bullets.map(b=>`<li>${b}</li>`).join('')}
+        </ul>
       </div>
-    </div>
+    </div>`).join('');
 
-    <!-- PROJECTS -->
-    <div class="section-gap" id="projects">
-      <div class="section-label">02 · Projects</div>
-      <div class="projects-grid">
-        ${SITE.projects.map(p=>`
-          <div class="card">
-            <div class="project-id">${p.id}</div>
-            <div class="project-name">${p.name}</div>
-            <p class="project-desc">${p.desc}</p>
-            ${pills(p.pills)}
-          </div>`).join('')}
-      </div>
-    </div>
+  document.getElementById('blog-preview-grid').innerHTML = SITE.blog.length
+    ? SITE.blog.map(b=>`
+        <a href="${b.href}" class="blog-preview-card">
+          <span class="bp-date">${b.date}</span>
+          <span class="bp-tag">${b.tag}</span>
+          <div class="bp-title">${b.title}</div>
+          <p class="bp-excerpt">${b.excerpt}</p>
+        </a>`).join('')
+    : '<div style="padding:32px;color:var(--faint);font-size:13px;background:var(--surface);">No posts yet — check back soon.</div>';
 
-    <!-- EXPERIENCE -->
-    <div class="section-gap" id="experience">
-      <div class="section-label">03 · Experience</div>
-      <div class="exp-timeline">
-        ${SITE.experience.map(e=>`
-          <div class="exp-item">
-            <div>
-              <span class="exp-period">${e.period}</span>
-              <div class="exp-company">${e.company}</div>
-              <div class="exp-loc">${e.location}</div>
-            </div>
-            <div>
-              <div class="exp-role">${e.role}</div>
-              <ul class="exp-list">
-                ${e.bullets.map(b=>`<li>${b}</li>`).join('')}
-              </ul>
-            </div>
-          </div>`).join('')}
-      </div>
-    </div>
+  /* ── HAMBURGER ── */
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
 
-    <!-- BLOG PREVIEW -->
-    <div class="section-gap" id="blog">
-      <div class="section-label">04 · Latest Posts</div>
-      <div class="blog-preview-grid">
-        ${SITE.blog.map(b=>`
-          <a href="${b.href}" class="blog-preview-card">
-            <span class="bp-date">${b.date}</span>
-            <span class="bp-tag">${b.tag}</span>
-            <div class="bp-title">${b.title}</div>
-            <p class="bp-excerpt">${b.excerpt}</p>
-          </a>`).join('')}
-      </div>
-      <a href="blog.html" class="view-all">View all posts &rarr;</a>
-    </div>
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
 
-    <!-- CONTACT -->
-    <div id="contact">
-      <div class="section-label">05 · Contact</div>
-      <div class="contact-grid">
-        <div>
-          <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--light);line-height:1.15;margin-bottom:12px;">Open to new<br>opportunities.</h2>
-          <p style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:24px;">Available for remote IT support, help desk, and data center roles. Always happy to talk networking, homelab builds, or anything infrastructure-related.</p>
-          <div class="contact-links">
-            ${SITE.contact.map(c=>`
-              <a href="${c.href}" class="contact-link" ${c.href.startsWith('http')?'target="_blank"':''}>
-                <span class="cl-label">${c.label}</span>
-                <span>${c.value}</span>
-              </a>`).join('')}
-          </div>
-        </div>
-        <div class="avail-card">
-          <div class="avail-hdr">// availability</div>
-          <div class="avail-status">
-            <div class="avail-dot"></div>
-            <div class="avail-status-text">${SITE.status}</div>
-          </div>
-          <div class="avail-roles">
-            ${SITE.openRoles.map(r=>`<div class="avail-role">${r}</div>`).join('')}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="height:64px;"></div>`;
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
 </script>
 </body>
 </html>
