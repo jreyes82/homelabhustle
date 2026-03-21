@@ -1,20 +1,20 @@
 const SITE = {
 
-  /* ââ PERSONAL INFO ââââââââââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ PERSONAL INFO Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   name:     "Joseph Reyes",
-  role:     "Data Center Â· IT Support Â· Homelab",
+  role:     "Data Center ÃÂ· IT Support ÃÂ· Homelab",
   location: "Campbell, CA",
-  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems â from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
+  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems Ã¢ÂÂ from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
   status:   "Open to work",
 
-  /* ââ CONTACT LINKS ââââââââââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ CONTACT LINKS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   contact: [
     { label: "Email",    value: "joseph@homelabhustle.com",            href: "mailto:joseph@homelabhustle.com" },
     { label: "LinkedIn", value: "linkedin.com/in/jreyes1982",          href: "https://www.linkedin.com/in/jreyes1982/" },
     { label: "GitHub",   value: "github.com/jreyes82",                 href: "https://github.com/jreyes82" },
   ],
 
-  /* ââ ROLES YOU'RE OPEN TO âââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ ROLES YOU'RE OPEN TO Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   openRoles: [
     "Remote IT Support",
     "Help Desk (L1 / L2)",
@@ -22,7 +22,7 @@ const SITE = {
     "Junior Network Engineer",
   ],
 
-  /* ââ STATS (hero card) ââââââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ STATS (hero card) Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   stats: [
     { key: "Experience",    value: "7+ yrs" },
     { key: "Location",      value: "Campbell, CA" },
@@ -31,7 +31,7 @@ const SITE = {
     { key: "Status",        value: "Open to work", blue: true },
   ],
 
-  /* ââ SKILLS âââââââââââââââââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ SKILLS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   skills: [
     {
       cat:   "Networking",
@@ -59,7 +59,7 @@ const SITE = {
     },
   ],
 
-  /* ââ CERTIFICATIONS âââââââââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ CERTIFICATIONS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   certs: [
     { name: "CompTIA Network+",            sub: "In Progress - Calbright College",  live: false },
     { name: "CompTIA A+",                  sub: "Completed - Sep 2025",             live: true  },
@@ -70,7 +70,7 @@ const SITE = {
     { name: "CCNA Introduction",           sub: "Cisco Networking Academy - 2017",  live: true  },
   ],
 
-  /* ââ PROJECTS âââââââââââââââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ PROJECTS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   projects: [
     {
       id:    "Project 01",
@@ -87,7 +87,7 @@ const SITE = {
     {
       id:    "Project 03",
       name:  "Media Automation Stack",
-      desc:  "Full media pipeline running on Windows 11 via Docker â Sonarr, Prowlarr, Overseerr, and Plex. Managed through Portainer, remotely accessible via Cloudflare tunnel and Apache Guacamole.",
+      desc:  "Full media pipeline running on Windows 11 via Docker Ã¢ÂÂ Sonarr, Prowlarr, Overseerr, and Plex. Managed through Portainer, remotely accessible via Cloudflare tunnel and Apache Guacamole.",
       pills: ["Plex", "Sonarr", "Prowlarr", "Portainer", "Guacamole"],
     },
     {
@@ -98,7 +98,7 @@ const SITE = {
     },
   ],
 
-  /* ââ EXPERIENCE âââââââââââââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ EXPERIENCE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   experience: [
     {
       period:   "2021 - 2023",
@@ -125,11 +125,18 @@ const SITE = {
     },
   ],
 
-  /* ââ BLOG POSTS âââââââââââââââââââââââââââââââââââââââââââ */
+  /* Ã¢ÂÂÃ¢ÂÂ BLOG POSTS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
   /* To add a post: copy one block, paste it at the TOP of the array, update the fields */
   /* For href, use the path to your post file e.g. "posts/vlan-segmentation.html"       */
   blog: [
     {
+      date:    "March 2026",
+      tag:     "Career",
+      title:   "Test",
+      excerpt: "test",
+      href:    "posts/test.html",
+    },
+{
       date:    "March 2026",
       tag:     "Homelab",
       title:   "homelabbing.....oh my!",
@@ -138,4 +145,4 @@ const SITE = {
     },
   ],
 
-};;
+};;;
