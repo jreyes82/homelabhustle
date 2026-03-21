@@ -1,4 +1,4 @@
-# josephsousa.com — Portfolio Site
+#  — Portfolio Site
 
 ## Editing the site
 
