@@ -254,7 +254,7 @@ body {
   #topbar { display: none; }
   #drawer {
     position: sticky; top: 0;
-    width: 220px; min-width: 220px;
+    width: 260px; min-width: 260px;
     height: 100vh; overflow-y: auto;
     transform: none !important;
     background: var(--bg2);
