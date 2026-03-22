@@ -1,20 +1,20 @@
 const SITE = {
 
-  /* ── PERSONAL INFO ──────────────────────────────────────── */
+  /* ââ PERSONAL INFO ââââââââââââââââââââââââââââââââââââââââ */
   name:     "Joseph Reyes",
-  role:     "Data Center · IT Support · Homelab",
+  role:     "Data Center Â· IT Support Â· Homelab",
   location: "Campbell, CA",
-  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems — from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
+  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems â from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
   status:   "Open to work",
 
-  /* ── CONTACT LINKS ──────────────────────────────────────── */
+  /* ââ CONTACT LINKS ââââââââââââââââââââââââââââââââââââââââ */
   contact: [
     { label: "Email",    value: "joseph@homelabhustle.com",            href: "mailto:joseph@homelabhustle.com" },
     { label: "LinkedIn", value: "linkedin.com/in/jreyes1982",          href: "https://www.linkedin.com/in/jreyes1982/" },
     { label: "GitHub",   value: "github.com/jreyes82",                 href: "https://github.com/jreyes82" },
   ],
 
-  /* ── ROLES YOU'RE OPEN TO ───────────────────────────────── */
+  /* ââ ROLES YOU'RE OPEN TO âââââââââââââââââââââââââââââââââ */
   openRoles: [
     "Remote IT Support",
     "Help Desk (L1 / L2)",
@@ -22,7 +22,7 @@ const SITE = {
     "Junior Network Engineer",
   ],
 
-  /* ── STATS (hero card) ──────────────────────────────────── */
+  /* ââ STATS (hero card) ââââââââââââââââââââââââââââââââââââ */
   stats: [
     { key: "Experience",    value: "7+ yrs" },
     { key: "Location",      value: "Campbell, CA" },
@@ -31,7 +31,7 @@ const SITE = {
     { key: "Status",        value: "Open to work", blue: true },
   ],
 
-  /* ── SKILLS ─────────────────────────────────────────────── */
+  /* ââ SKILLS âââââââââââââââââââââââââââââââââââââââââââââââ */
   skills: [
     {
       cat:   "Networking",
@@ -59,7 +59,7 @@ const SITE = {
     },
   ],
 
-  /* ── CERTIFICATIONS ─────────────────────────────────────── */
+  /* ââ CERTIFICATIONS âââââââââââââââââââââââââââââââââââââââ */
   certs: [
     { name: "CompTIA Network+",            sub: "In Progress - Calbright College", live: false, section: "In Progress" },
     { name: "CompTIA A+",                  sub: "Calbright College - Sep 2025",    live: true,  section: "Completed" },
@@ -70,7 +70,7 @@ const SITE = {
     { name: "CCNA Introduction",           sub: "Cisco Networking Academy - 2017", live: true,  section: "Completed" },
   ],
 
-  /* ── PROJECTS ───────────────────────────────────────────── */
+  /* ââ PROJECTS âââââââââââââââââââââââââââââââââââââââââââââ */
   projects: [
     {
       id:    "Project 01",
@@ -98,7 +98,7 @@ const SITE = {
     },
   ],
 
-  /* ── EXPERIENCE ─────────────────────────────────────────── */
+  /* ââ EXPERIENCE âââââââââââââââââââââââââââââââââââââââââââ */
   experience: [
     {
       period:   "2021 - 2023",
@@ -128,10 +128,17 @@ const SITE = {
     },
   ],
 
-  /* ── BLOG POSTS ─────────────────────────────────────────── */
+  /* ââ BLOG POSTS âââââââââââââââââââââââââââââââââââââââââââ */
   /* The admin panel manages this automatically -- don't edit manually */
   blog: [
     {
+      date:    "March 2026",
+      tag:     "Self-Hosted",
+      title:   "Adding Portainer and Migrating My Docker Services",
+      excerpt: "I had Docker running but no good way to manage everything. Here's how I added Portainer and migrated five services — and the port conflicts I hit along the way.",
+      href:    "posts/adding-portainer-and-migrating-my-docker-services.html",
+    },
+{
       date:    "March 2026",
       tag:     "Homelab",
       title:   "homelabbing.....oh my!",
@@ -140,4 +147,4 @@ const SITE = {
     },
   ],
 
-};
+};;
