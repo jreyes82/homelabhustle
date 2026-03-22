@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adding Portainer and Migrating My Docker Services — Homelab Hustle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+  .post-meta { display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap; }
+  .post-tag { font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc2);padding:3px 9px;border:1px solid rgba(58,126,170,.3); }
+  .post-date { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint); }
+  .post-read { font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--faint); }
+  .post-body { font-size:15px;font-weight:300;color:var(--text);line-height:1.9; }
+  .post-body h2 { font-family:var(--serif);font-size:22px;font-weight:700;color:var(--light);margin:36px 0 12px;line-height:1.2; }
+  .post-body h3 { font-family:var(--serif);font-size:17px;font-weight:700;color:var(--light);margin:24px 0 8px; }
+  .post-body p { margin-bottom:18px; }
+  .post-body ul,.post-body ol { padding-left:20px;margin-bottom:18px; }
+  .post-body li { margin-bottom:6px; }
+  .post-body a { color:var(--acc2);text-decoration:none;border-bottom:1px solid rgba(91,163,204,.3); }
+  .post-body a:hover { border-bottom-color:var(--acc2); }
+  .post-body pre { background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);padding:16px;overflow-x:auto;margin:20px 0; }
+  .post-body code { font-family:var(--mono);font-size:12px;color:var(--acc2);line-height:1.7; }
+  .post-body p code,.post-body li code { background:var(--bg2);border:1px solid var(--border);padding:1px 6px;font-size:12px;color:var(--acc2); }
+  .note { background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--acc2);padding:14px 18px;margin:20px 0;font-size:13px;color:var(--muted); }
+  .note strong { color:var(--acc2);font-weight:500; }
+  .post-footer { display:flex;justify-content:space-between;align-items:center;padding-top:36px;margin-top:44px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px; }
+  .post-back { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s; }
+  .post-back:hover { color:var(--acc2); }
+  .post-tags { display:flex;gap:6px;flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<script src="../config.js"></script>
+<header id="topbar">
+  <a href="../index.html" class="topbar-logo" id="topbar-name"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav id="drawer">
+  <div class="drawer-avatar" id="drawer-avatar"></div>
+  <div class="drawer-name" id="drawer-name"></div>
+  <div class="drawer-role" id="drawer-role"></div>
+  <div class="drawer-status"><div class="drawer-dot"></div><span id="drawer-status"></span></div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Navigate</div>
+  <ul class="drawer-nav">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Contact</div>
+  <div class="drawer-contact" id="drawer-contact"></div>
+</nav>
+<main id="main">
+  <div class="page-eyebrow">Self-Hosted</div>
+  <h1 class="page-title">Adding Portainer and Migrating My Docker Services</h1>
+  <div class="page-rule"></div>
+  <div class="post-meta">
+    <span class="post-tag">Self-Hosted</span>
+    <span class="post-date">March 2026</span>
+    <span class="post-read">8 min read</span>
+  </div>
+  <!-- excerpt stored for blog index -->
+  <meta name="description" data-excerpt="I had Docker running but no good way to manage everything. Here's how I added Portainer and migrated five services — and the port conflicts I hit along the way." content="I had Docker running but no good way to manage everything. Here's how I added Portainer and migrated five services — and the port conflicts I hit along the way.">
+  <div class="post-body">
+<p>I had been running Docker Desktop on Windows 11 for a while — managing everything through the CLI and the basic Docker Desktop UI. It worked, but as the number of containers grew it became harder to keep track of what was running, what ports were mapped where, and what needed updating. I decided to add Portainer on top of my existing Docker setup and migrate all my services into it. Here's how that went.</p>
+
+<h2>Why Portainer</h2>
+
+<p>Portainer gives you a proper web UI for managing Docker — containers, images, volumes, networks, and stacks all in one place. The key thing for me was stacks — Portainer lets you deploy services using docker-compose files directly from the UI, which makes it much easier to manage multi-container setups and keep everything documented.</p>
+
+<p>I was already using docker-compose files for most of my services, so the migration path was straightforward in theory. In practice, it took a few hours and hit a couple of snags.</p>
+
+<h2>Installing Portainer</h2>
+
+<p>Since Docker was already running, adding Portainer was just a matter of pulling the image and running it as a container. I ran this in PowerShell:</p>
+
+<pre><code>docker run -d -p 9000:9000 --name portainer `
+  --restart=always `
+  -v /var/run/docker.sock:/var/run/docker.sock `
+  -v portainer_data:/data `
+  portainer/portainer-ce:latest</code></pre>
+
+<p>After that, Portainer was available at <code>localhost:9000</code>. First-time setup asks you to create an admin account and connect to the local Docker environment — straightforward.</p>
+
+<div class="note"><strong>Tip:</strong> The <code>portainer_data</code> volume is where all your Portainer config lives. Never delete it. If you ever need to update Portainer, stop and remove the container but leave the volume alone and your config will survive.</div>
+
+<h2>Migrating the Services</h2>
+
+<p>I had five services to bring over: the FLAC music bot, a Discord music bot, Aurral, Framerr, and Apache Guacamole. My approach was to take the docker-compose files I already had and deploy them as Portainer stacks one by one.</p>
+
+<h3>The process for each service</h3>
+
+<ul>
+  <li>Stop and remove the existing container in Docker Desktop</li>
+  <li>Go to Portainer — Stacks — Add Stack</li>
+  <li>Paste in the docker-compose content</li>
+  <li>Deploy and verify it came up healthy</li>
+</ul>
+
+<p>For most services this worked on the first try. The docker-compose files I already had were clean and Portainer just picked them up without issues. Volumes carried over since they were named volumes — the data was still there.</p>
+
+<h3>Where things got complicated</h3>
+
+<p>Port conflicts were the main headache. When I had containers still running in Docker Desktop and tried to bring up a Portainer stack pointing to the same ports, Docker would throw a bind error. The fix was making sure the old container was fully stopped and removed before deploying the stack — obvious in hindsight, but easy to miss when moving through multiple services quickly.</p>
+
+<p>Guacamole was the most involved migration. It runs three containers — <code>guacd</code>, the Guacamole web app, and a database — so the compose file is more complex. Once I had the compose file right it came up cleanly.</p>
+
+<h2>The Result</h2>
+
+<p>After everything was migrated, the difference in visibility was immediately noticeable. Instead of running <code>docker ps</code> to check what's running, I can see all my stacks in one place, check container health, view logs, and manage updates — all from the browser.</p>
+
+<h2>What I'd Do Differently</h2>
+
+<p>Stop all existing containers before starting any migrations rather than doing them one at a time. The port conflicts I hit were a direct result of having old containers still running while trying to bring up new stacks. A clean stop-everything-first approach would have saved some troubleshooting time.</p>
+  </div><!-- POST FOOTER -->
+  <div class="post-footer">
+    <a href="../blog.html" class="post-back">&larr; Back to blog</a>
+    <div class="post-tags"><span class="pill">Self-Hosted</span></div>
+  </div>
+  <div style="height:48px;"></div>
+</main>
+<script>
+  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
+  document.getElementById('topbar-name').textContent = SITE.name;
+  document.getElementById('drawer-avatar').textContent = initials;
+  document.getElementById('drawer-name').textContent = SITE.name;
+  document.getElementById('drawer-role').textContent = SITE.role;
+  document.getElementById('drawer-status').textContent = SITE.status;
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>
+    '<a href="'+c.href+'" '+(c.href.startsWith('http')?'target="_blank"':'')+'><span class="drawer-contact-label">'+c.label+'</span>'+c.value+'</a>'
+  ).join('');
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
