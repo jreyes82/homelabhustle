@@ -4,7 +4,7 @@ const SITE = {
   name:     "Joseph Reyes",
   role:     "Data Center | IT Support | Homelab",
   location: "Campbell, CA",
-  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems - from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
+  bio:      "7+ years in IT consulting and data center infrastructure. CompTIA A+ certified with Network+ in progress. I build and maintain hands-on homelab infrastructure - from Docker service migrations to self-hosted communication stacks on VPS. Currently seeking remote IT support and data center roles in the Bay Area.",
   status:   "Open to work",
 
   /* ---- CONTACT LINKS ---------------------------------------- */
