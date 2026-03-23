@@ -1,20 +1,20 @@
 const SITE = {
 
-  /* Ã¢ÂÂÃ¢ÂÂ PERSONAL INFO Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
+  /* ---- PERSONAL INFO ---------------------------------------- */
   name:     "Joseph Reyes",
-  role:     "Data Center ÃÂ· IT Support ÃÂ· Homelab",
+  role:     "Data Center | IT Support | Homelab",
   location: "Campbell, CA",
-  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems Ã¢ÂÂ from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
+  bio:      "7+ years in IT consulting and data center infrastructure. I build, document, and maintain systems - from VLAN segmentation on UniFi to self-hosted Matrix stacks on VPS. Currently completing CompTIA Network+ through Calbright College.",
   status:   "Open to work",
 
-  /* Ã¢ÂÂÃ¢ÂÂ CONTACT LINKS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
+  /* ---- CONTACT LINKS ---------------------------------------- */
   contact: [
-    { label: "Email",    value: "joseph@homelabhustle.com",            href: "mailto:joseph@homelabhustle.com" },
-    { label: "LinkedIn", value: "linkedin.com/in/jreyes1982",          href: "https://www.linkedin.com/in/jreyes1982/" },
-    { label: "GitHub",   value: "github.com/jreyes82",                 href: "https://github.com/jreyes82" },
+    { label: "Email",    value: "joseph@homelabhustle.com",   href: "mailto:joseph@homelabhustle.com" },
+    { label: "LinkedIn", value: "linkedin.com/in/jreyes1982", href: "https://www.linkedin.com/in/jreyes1982/" },
+    { label: "GitHub",   value: "github.com/jreyes82",        href: "https://github.com/jreyes82" },
   ],
 
-  /* Ã¢ÂÂÃ¢ÂÂ ROLES YOU'RE OPEN TO Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
+  /* ---- ROLES YOU'RE OPEN TO --------------------------------- */
   openRoles: [
     "Remote IT Support",
     "Help Desk (L1 / L2)",
@@ -22,7 +22,7 @@ const SITE = {
     "Junior Network Engineer",
   ],
 
-  /* Ã¢ÂÂÃ¢ÂÂ STATS (hero card) Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
+  /* ---- STATS (hero card) ------------------------------------ */
   stats: [
     { key: "Experience",    value: "7+ yrs" },
     { key: "Location",      value: "Campbell, CA" },
@@ -31,7 +31,7 @@ const SITE = {
     { key: "Status",        value: "Open to work", blue: true },
   ],
 
-  /* Ã¢ÂÂÃ¢ÂÂ SKILLS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
+  /* ---- SKILLS ----------------------------------------------- */
   skills: [
     {
       cat:   "Networking",
@@ -48,7 +48,7 @@ const SITE = {
     {
       cat:   "Homelab",
       name:  "Self-Hosted Systems",
-      desc: "Docker, Portainer, VMware ESXi, Proxmox, Hyper-V, Linux administration, Cloudflare Zero Trust, Nginx Proxy Manager, and service orchestration.",
+      desc:  "Docker, Portainer, VMware ESXi, Proxmox, Hyper-V, Linux administration, Cloudflare Zero Trust, Nginx Proxy Manager, and service orchestration.",
       pills: ["Docker", "Linux", "Cloudflare", "Portainer", "VMware", "Proxmox", "Hyper-V", "Nginx"],
     },
     {
@@ -59,7 +59,7 @@ const SITE = {
     },
   ],
 
-  /* Ã¢ÂÂÃ¢ÂÂ CERTIFICATIONS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
+  /* ---- CERTIFICATIONS --------------------------------------- */
   certs: [
     { name: "CompTIA Network+",            sub: "In Progress - Calbright College", live: false, section: "In Progress" },
     { name: "CompTIA A+",                  sub: "Calbright College - Sep 2025",    live: true,  section: "Completed" },
@@ -70,7 +70,7 @@ const SITE = {
     { name: "CCNA Introduction",           sub: "Cisco Networking Academy - 2017", live: true,  section: "Completed" },
   ],
 
-  /* Ã¢ÂÂÃ¢ÂÂ PROJECTS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
+  /* ---- PROJECTS --------------------------------------------- */
   projects: [
     {
       id:    "Project 01",
@@ -80,25 +80,25 @@ const SITE = {
     },
     {
       id:    "Project 02",
-      name:  "UniFi Network Dashboard",
-      desc:  "Explored building a custom monitoring widget using the UniFi Network API with AI-assisted development. Focused on understanding API integration and real-time data display concepts.",
-      pills: ["React 19", "Node.js", "SQLite", "UniFi API"],
-    },
-    {
-      id:    "Project 03",
       name:  "Media Automation Stack",
-      desc:  "Self-hosted media pipeline running on Windows 11 via Docker — Sonarr, Prowlarr, Overseerr, and Plex managed through Portainer. Configured remote access via Cloudflare tunnel and Apache Guacamole.",
+      desc:  "Self-hosted media pipeline running on Windows 11 via Docker - Sonarr, Prowlarr, Overseerr, and Plex managed through Portainer. Configured remote access via Cloudflare tunnel and Apache Guacamole.",
       pills: ["Plex", "Sonarr", "Prowlarr", "Portainer", "Guacamole"],
     },
     {
+      id:    "Project 03",
+      name:  "Homelab Portfolio Site",
+      desc:  "Designed and deployed this portfolio site at homelabhustle.com. Set up GitHub for version control, Cloudflare Pages for hosting, Cloudflare Zero Trust to secure the admin panel, DNS configuration, and email routing.",
+      pills: ["Cloudflare Pages", "GitHub", "Zero Trust", "DNS", "HTML/CSS"],
+    },
+    {
       id:    "Project 04",
-      name:  "TeamSpeak 6 Music Bot",
-      desc:  "Deployed and configured a Python-based music bot on a self-hosted TeamSpeak 6 server with AI-assisted development. Managed VPS deployment, dependencies, and service configuration.",
-      pills: ["Python", "yt-dlp", "TeamSpeak 6", "VPS"],
+      name:  "Docker Service Migration",
+      desc:  "Migrated five self-hosted services into Portainer stacks on Windows 11. Converted existing containers to docker-compose deployments, resolved port conflicts, and centralized container management.",
+      pills: ["Docker", "Portainer", "Windows 11", "docker-compose"],
     },
   ],
 
-  /* Ã¢ÂÂÃ¢ÂÂ EXPERIENCE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
+  /* ---- EXPERIENCE ------------------------------------------- */
   experience: [
     {
       period:   "2021 - 2023",
@@ -128,30 +128,23 @@ const SITE = {
     },
   ],
 
-  /* Ã¢ÂÂÃ¢ÂÂ BLOG POSTS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
-  /* The admin panel manages this automatically -- don't edit manually */
+  /* ---- BLOG POSTS ------------------------------------------- */
+  /* The admin panel manages this automatically - do not edit manually */
   blog: [
     {
       date:    "March 2026",
       tag:     "Career",
       title:   "How I Got My CompTIA A+ for Free Through Calbright College",
-      excerpt: "The A+ exam costs $250 a pop — and you need to pass two of them. Here's how I found Calbright College and got fully certified in under 6 months without paying a dime.",
+      excerpt: "The A+ exam costs $250 a pop and you need to pass two of them. Here's how I found Calbright College and got fully certified in under 6 months without paying a dime.",
       href:    "posts/how-i-got-my-comptia-a-for-free-through-calbright-college.html",
     },
-{
-      date:    "March 2026",
-      tag:     "Self-Hosted",
-      title:   "Adding Portainer and Migrating My Docker Services",
-      excerpt: "I had Docker running but no good way to manage everything. Here's how I added Portainer and migrated five services â and the port conflicts I hit along the way.",
-      href:    "posts/adding-portainer-and-migrating-my-docker-services.html",
-    },
-{
+    {
       date:    "March 2026",
       tag:     "Homelab",
-      title:   "homelabbing.....oh my!",
-      excerpt: "homelabbing.....oh my!",
-      href:    "posts/homelabbingoh-my.html",
+      title:   "Adding Portainer and Migrating My Docker Services",
+      excerpt: "I had Docker running but no good way to manage everything. Here's how I added Portainer and migrated five services - and the port conflicts I hit along the way.",
+      href:    "posts/adding-portainer-and-migrating-my-docker-services.html",
     },
   ],
 
-};;;
+};
