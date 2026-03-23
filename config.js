@@ -87,13 +87,13 @@ const SITE = {
     {
       id:    "Project 03",
       name:  "Homelab Portfolio Site",
-      desc:  "Designed and deployed this portfolio site at homelabhustle.com. Set up GitHub for version control, Cloudflare Pages for hosting, Cloudflare Zero Trust to secure the admin panel, DNS configuration, and email routing.",
+      desc:  "Designed and deployed this portfolio site at homelabhustle.com. Set up GitHub for version control, Cloudflare Pages for hosting, Cloudflare Zero Trust to secure the admin panel, custom domain DNS configuration, and email routing through Cloudflare.",
       pills: ["Cloudflare Pages", "GitHub", "Zero Trust", "DNS", "HTML/CSS"],
     },
     {
       id:    "Project 04",
-      name:  "Docker Service Migration",
-      desc:  "Migrated five self-hosted services into Portainer stacks on Windows 11. Converted existing containers to docker-compose deployments, resolved port conflicts, and centralized container management.",
+      name:  "Docker Service Migration to Portainer",
+      desc:  "Migrated five self-hosted services from standalone Docker containers into managed Portainer stacks on Windows 11. Converted to docker-compose deployments, resolved port conflicts during migration, and centralized container management and monitoring.",
       pills: ["Docker", "Portainer", "Windows 11", "docker-compose"],
     },
   ],
