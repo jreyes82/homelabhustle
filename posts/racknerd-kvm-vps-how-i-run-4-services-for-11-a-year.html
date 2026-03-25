@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RackNerd KVM VPS: How I Run 4 Services for $11 a Year — Homelab Hustle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+  .post-meta { display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap; }
+  .post-tag { font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc2);padding:3px 9px;border:1px solid rgba(58,126,170,.3); }
+  .post-date { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint); }
+  .post-read { font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--faint); }
+  .post-body { font-size:15px;font-weight:300;color:var(--text);line-height:1.9; }
+  .post-body h2 { font-family:var(--serif);font-size:22px;font-weight:700;color:var(--light);margin:36px 0 12px;line-height:1.2; }
+  .post-body h3 { font-family:var(--serif);font-size:17px;font-weight:700;color:var(--light);margin:24px 0 8px; }
+  .post-body p { margin-bottom:18px; }
+  .post-body ul,.post-body ol { padding-left:20px;margin-bottom:18px; }
+  .post-body li { margin-bottom:6px; }
+  .post-body a { color:var(--acc2);text-decoration:none;border-bottom:1px solid rgba(91,163,204,.3); }
+  .post-body a:hover { border-bottom-color:var(--acc2); }
+  .post-body pre { background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);padding:16px;overflow-x:auto;margin:20px 0; }
+  .post-body code { font-family:var(--mono);font-size:12px;color:var(--acc2);line-height:1.7; }
+  .post-body p code,.post-body li code { background:var(--bg2);border:1px solid var(--border);padding:1px 6px;font-size:12px;color:var(--acc2); }
+  .note { background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--acc2);padding:14px 18px;margin:20px 0;font-size:13px;color:var(--muted); }
+  .note strong { color:var(--acc2);font-weight:500; }
+  .post-footer { display:flex;justify-content:space-between;align-items:center;padding-top:36px;margin-top:44px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px; }
+  .post-back { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s; }
+  .post-back:hover { color:var(--acc2); }
+  .post-tags { display:flex;gap:6px;flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<script src="../config.js"></script>
+<header id="topbar">
+  <a href="../index.html" class="topbar-logo" id="topbar-name"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav id="drawer">
+  <div class="drawer-avatar" id="drawer-avatar"></div>
+  <div class="drawer-name" id="drawer-name"></div>
+  <div class="drawer-role" id="drawer-role"></div>
+  <div class="drawer-status"><div class="drawer-dot"></div><span id="drawer-status"></span></div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Navigate</div>
+  <ul class="drawer-nav">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Contact</div>
+  <div class="drawer-contact" id="drawer-contact"></div>
+</nav>
+<main id="main">
+  <div class="page-eyebrow">Homelab</div>
+  <h1 class="page-title">RackNerd KVM VPS: How I Run 4 Services for $11 a Year</h1>
+  <div class="page-rule"></div>
+  <div class="post-meta">
+    <span class="post-tag">Homelab</span>
+    <span class="post-date">March 2026</span>
+    <span class="post-read">5 min read</span>
+  </div>
+  <!-- excerpt stored for blog index -->
+  <meta name="description" data-excerpt="A full Linux VPS running Matrix, Jitsi, TeamSpeak, and a music bot for $11 a year. Here's how I found the deal and what I'm running on it." content="A full Linux VPS running Matrix, Jitsi, TeamSpeak, and a music bot for $11 a year. Here's how I found the deal and what I'm running on it.">
+  <div class="post-body">
+<p>One of the best decisions I made for my homelab was picking up a cheap KVM VPS from RackNerd. I'm running four services on it — Matrix Synapse, Element, Jitsi, TeamSpeak 6, and a music bot — all on Ubuntu, for $11 a year. Not a month. A year.</p>
+
+<h2>How I Found the Deal</h2>
+
+<p>RackNerd regularly runs promotions, especially around holidays, but the prices aren't always easy to find on their main site. The trick is using <a href="https://racknerdtracker.com" target="_blank">RackNerdTracker</a> — a third-party site that aggregates all current and historical RackNerd deals in one place. You can filter by RAM, storage, and price to find exactly what you need.</p>
+
+<p>I picked up a KVM VPS deal that comes out to around $11 for the full year. For that price you get a real KVM virtual machine — not OpenVZ — which means you have full kernel access, can run Docker, and aren't sharing resources in the same way. It's a proper Linux environment.</p>
+
+<div class="note"><strong>Tip:</strong> Check RackNerdTracker before buying directly. The deals there are often significantly cheaper than what's listed on the main site, and they're all legitimate RackNerd offers.</div>
+
+<h2>What I'm Running on It</h2>
+
+<p>The VPS runs Ubuntu and currently hosts four things:</p>
+
+<ul>
+  <li><strong>Matrix Synapse + Element</strong> — self-hosted communication server for my gaming group. Federation disabled, private instance only.</li>
+  <li><strong>Jitsi</strong> — video calling that ties into the Matrix setup for voice and video within the group.</li>
+  <li><strong>TeamSpeak 6</strong> — the group still uses TS6 for gaming sessions. Runs lightweight alongside everything else.</li>
+  <li><strong>Music bot</strong> — Python-based bot that streams audio into TeamSpeak via yt-dlp.</li>
+</ul>
+
+<p>All of this runs comfortably on the entry-level VPS. The key is that these services are not particularly resource-heavy when you're running a small private instance. Matrix Synapse has a reputation for being resource-hungry at scale, but for a small group with no federation it's well-behaved.</p>
+
+<h2>Why KVM Matters</h2>
+
+<p>When shopping for cheap VPS hosting you'll see two types — OpenVZ and KVM. OpenVZ is container-based virtualization where resources are shared at the OS level. KVM is full hardware virtualization — your VPS behaves like a real dedicated machine with its own kernel.</p>
+
+<p>For a homelab use case, KVM is worth the slight premium because:</p>
+
+<ul>
+  <li>You can run Docker without workarounds</li>
+  <li>Custom kernel modules work</li>
+  <li>Performance is more predictable</li>
+  <li>You're not affected by noisy neighbors at the kernel level</li>
+</ul>
+
+<p>RackNerd's cheap deals are all KVM, which is part of why they're such good value.</p>
+
+<h2>Setup Experience</h2>
+
+<p>Getting the VPS up was straightforward. You get root access via SSH immediately after provisioning — pick your OS from their list (I went with Ubuntu), wait a few minutes, and SSH in. From there it's a standard Linux setup. I installed Docker, pulled my compose files, and had everything running within an hour.</p>
+
+<p>RackNerd uses the SolusVM control panel which gives you a basic web UI to reboot, reinstall the OS, and check bandwidth usage. Nothing fancy but everything you actually need is there.</p>
+
+<h2>Is It Worth It</h2>
+
+<p>For $11 a year it's a no-brainer for anyone who wants to self-host something off their home network. Whether it's a communication server, a VPN, a game server, or a small web app — having a remote Linux box that you fully control is genuinely useful, and at this price point the cost is basically irrelevant.</p>
+
+<p>If you want to pick up a VPS, you can sign up through my referral link below. Use RackNerdTracker to find the best current deal, then come back to sign up.</p>
+
+<p><a href="https://my.racknerd.com/aff.php?aff=18977" target="_blank">Sign up for RackNerd (referral link)</a> — RackNerdTracker for finding deals: <a href="https://racknerdtracker.com" target="_blank">racknerdtracker.com</a></p>
+
+<div class="note"><strong>Disclosure:</strong> The RackNerd link above is a referral link. I earn a commission if you sign up through it. I was already a paying customer before joining their affiliate program.</div>
+  </div><!-- POST FOOTER -->
+  <div class="post-footer">
+    <a href="../blog.html" class="post-back">&larr; Back to blog</a>
+    <div class="post-tags"><span class="pill">Homelab</span></div>
+  </div>
+  <div style="height:48px;"></div>
+</main>
+<script>
+  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
+  document.getElementById('topbar-name').textContent = SITE.name;
+  document.getElementById('drawer-avatar').textContent = initials;
+  document.getElementById('drawer-name').textContent = SITE.name;
+  document.getElementById('drawer-role').textContent = SITE.role;
+  document.getElementById('drawer-status').textContent = SITE.status;
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>
+    '<a href="'+c.href+'" '+(c.href.startsWith('http')?'target="_blank"':'')+'><span class="drawer-contact-label">'+c.label+'</span>'+c.value+'</a>'
+  ).join('');
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
