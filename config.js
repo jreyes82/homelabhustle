@@ -131,6 +131,13 @@ const SITE = {
   /* ---- BLOG POSTS ------------------------------------------- */
   /* The admin panel manages this automatically - do not edit manually */
   blog: [
+    {
+      date:    "March 2026",
+      tag:     "Homelab",
+      title:   "RackNerd KVM VPS: How I Run 4 Services for $11 a Year",
+      excerpt: "A full Linux VPS running Matrix, Jitsi, TeamSpeak, and a music bot for $11 a year. Here's how I found the deal and what I'm running on it.",
+      href:    "posts/racknerd-kvm-vps-how-i-run-4-services-for-11-a-year.html",
+    },
 {
       date:    "March 2026",
       tag:     "Career",
@@ -147,4 +154,4 @@ const SITE = {
     },
   ],
 
-};;
+};;;
