@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recommended Tools — Homelab Hustle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<style>
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 2px;
+  }
+
+  .tool-card {
+    background: var(--surface);
+    padding: 24px 20px;
+    text-decoration: none;
+    display: block;
+    border-top: 3px solid transparent;
+    transition: background .2s, border-top-color .2s;
+    position: relative;
+  }
+
+  .tool-card:hover {
+    background: var(--surf2);
+    border-top-color: var(--accent);
+  }
+
+  .tool-card.affiliate::after {
+    content: 'affiliate';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: var(--mono);
+    font-size: 7px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    border: 1px solid var(--border);
+    padding: 2px 5px;
+  }
+
+  .tool-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--bg2);
+    border: 1px solid var(--bord2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--acc2);
+  }
+
+  .tool-name {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--light);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .tool-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .tool-tag {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--acc2);
+    padding: 2px 6px;
+    border: 1px solid rgba(58,126,170,.25);
+    display: inline-block;
+  }
+
+  .tool-tag.free { color: #52B788; border-color: rgba(82,183,136,.25); }
+  .tool-tag.paid { color: var(--muted); border-color: var(--border); }
+
+  .disclaimer {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .08em;
+    color: var(--faint);
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+  }
+
+  @media (max-width: 768px) {
+    .tools-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .tools-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<script src="config.js"></script>
+
+<header id="topbar">
+  <a href="index.html" class="topbar-logo" id="topbar-name"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav id="drawer">
+  <div class="drawer-avatar" id="drawer-avatar"></div>
+  <div class="drawer-name" id="drawer-name"></div>
+  <div class="drawer-role" id="drawer-role"></div>
+  <div class="drawer-status"><div class="drawer-dot"></div><span id="drawer-status"></span></div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Navigate</div>
+  <ul class="drawer-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="tools.html" class="active">Tools</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Contact</div>
+  <div class="drawer-contact" id="drawer-contact"></div>
+</nav>
+
+<main id="main">
+  <div class="page-eyebrow">Homelab</div>
+  <h1 class="page-title">Tools I Actually Use</h1>
+  <div class="page-rule"></div>
+  <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:40px;max-width:580px;">
+    Everything listed here is running in my homelab right now or is something I actively recommend. No fluff, no tools I haven't touched.
+  </p>
+
+  <!-- MEDIA STACK -->
+  <div class="section-label">Media Stack</div>
+  <div class="tools-grid">
+
+    <a href="https://www.plex.tv" target="_blank" class="tool-card">
+      <div class="tool-icon">P</div>
+      <div class="tool-name">Plex</div>
+      <p class="tool-desc">Personal media server. Stream your own movies, TV, and music from anywhere. The backbone of my media setup.</p>
+      <span class="tool-tag">Free + paid pass</span>
+    </a>
+
+    <a href="https://sonarr.tv" target="_blank" class="tool-card">
+      <div class="tool-icon">S</div>
+      <div class="tool-name">Sonarr</div>
+      <p class="tool-desc">Automatic TV show management. Monitors, grabs, and organizes episodes into your library automatically.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+    <a href="https://radarr.video" target="_blank" class="tool-card">
+      <div class="tool-icon">R</div>
+      <div class="tool-name">Radarr</div>
+      <p class="tool-desc">Same as Sonarr but for movies. Set it and forget it — movies get grabbed and organized automatically.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+    <a href="https://lidarr.audio" target="_blank" class="tool-card">
+      <div class="tool-icon">L</div>
+      <div class="tool-name">Lidarr</div>
+      <p class="tool-desc">Automatic music collection management. Monitors artists and grabs new releases in your preferred format.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+    <a href="https://github.com/Audioooo/aurral" target="_blank" class="tool-card">
+      <div class="tool-icon">A</div>
+      <div class="tool-name">Aurral</div>
+      <p class="tool-desc">Self-hosted music streaming frontend that connects to your Lidarr library. Clean UI for browsing and playing your collection.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+    <a href="https://www.sabnzbd.org" target="_blank" class="tool-card">
+      <div class="tool-icon">S</div>
+      <div class="tool-name">SABnzbd</div>
+      <p class="tool-desc">Usenet download client. Works alongside Sonarr and Radarr to handle the actual downloading.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+    <a href="https://overseerr.dev" target="_blank" class="tool-card">
+      <div class="tool-icon">O</div>
+      <div class="tool-name">Overseerr</div>
+      <p class="tool-desc">Request management for Plex. Let friends and family request movies and shows through a clean interface.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+    <a href="https://tautulli.com" target="_blank" class="tool-card">
+      <div class="tool-icon">T</div>
+      <div class="tool-name">Tautulli</div>
+      <p class="tool-desc">Plex monitoring and analytics. See who's watching what, track history, and get notifications.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+  </div>
+
+  <!-- HOSTING & NETWORK -->
+  <div class="section-label" style="margin-top:32px;">Hosting & Network</div>
+  <div class="tools-grid">
+
+    <a href="https://www.cloudflare.com" target="_blank" class="tool-card">
+      <div class="tool-icon">C</div>
+      <div class="tool-name">Cloudflare</div>
+      <p class="tool-desc">DNS, tunnels, Zero Trust access, and DDoS protection. I use it for everything domain-related on this site and in my homelab.</p>
+      <span class="tool-tag free">Free tier</span>
+    </a>
+
+    <a href="https://www.racknerd.com" target="_blank" class="tool-card affiliate">
+      <div class="tool-icon">R</div>
+      <div class="tool-name">RackNerd</div>
+      <p class="tool-desc">Affordable VPS hosting. My Matrix, Jitsi, and TeamSpeak stack runs on a RackNerd VPS. Great value for the price.</p>
+      <span class="tool-tag paid">Paid</span>
+    </a>
+
+  </div>
+
+  <!-- VIRTUALIZATION -->
+  <div class="section-label" style="margin-top:32px;">Virtualization</div>
+  <div class="tools-grid">
+
+    <a href="https://www.proxmox.com" target="_blank" class="tool-card">
+      <div class="tool-icon">P</div>
+      <div class="tool-name">Proxmox</div>
+      <p class="tool-desc">Open-source virtualization platform. Run VMs and containers on bare metal with a solid web UI. Industry standard for homelabs.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+  </div>
+
+  <!-- HOMELAB MANAGEMENT -->
+  <div class="section-label" style="margin-top:32px;">Homelab Management</div>
+  <div class="tools-grid">
+
+    <a href="https://www.portainer.io" target="_blank" class="tool-card">
+      <div class="tool-icon">P</div>
+      <div class="tool-name">Portainer</div>
+      <p class="tool-desc">Web UI for managing Docker containers, stacks, images, and volumes. Makes running a homelab significantly less painful.</p>
+      <span class="tool-tag free">Free community edition</span>
+    </a>
+
+    <a href="https://framerr.app" target="_blank" class="tool-card">
+      <div class="tool-icon">F</div>
+      <div class="tool-name">Framerr</div>
+      <p class="tool-desc">Homelab dashboard that brings all your services together in one place. Clean, customizable, and self-hosted.</p>
+      <span class="tool-tag free">Free</span>
+    </a>
+
+  </div>
+
+  <div class="disclaimer">
+    * RackNerd links may be affiliate links — I only recommend services I actually use and pay for myself.
+  </div>
+
+</main>
+
+<script>
+  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
+  document.title = 'Recommended Tools - ' + SITE.name;
+  document.getElementById('topbar-name').textContent = SITE.name;
+  document.getElementById('drawer-avatar').innerHTML = '<img src="logo.svg" alt="Homelab Hustle" style="width:160px;height:96px;display:block;margin:0 auto;">';
+  document.getElementById('drawer-name').textContent = SITE.name;
+  document.getElementById('drawer-role').textContent = SITE.role;
+  document.getElementById('drawer-status').textContent = SITE.status;
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>
+    '<a href="'+c.href+'" '+(c.href.startsWith('http')?'target="_blank"':'')+'><span class="drawer-contact-label">'+c.label+'</span>'+c.value+'</a>'
+  ).join('');
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
