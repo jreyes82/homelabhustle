@@ -131,14 +131,14 @@ const SITE = {
   /* ---- BLOG POSTS ------------------------------------------- */
   /* The admin panel manages this automatically - do not edit manually */
   blog: [
-    {
+{
       date:    "March 2026",
       tag:     "Career",
       title:   "How I Got My CompTIA A+ for Free Through Calbright College",
       excerpt: "The A+ exam costs $250 a pop and you need to pass two of them. Here's how I found Calbright College and got fully certified in under 6 months without paying a dime.",
       href:    "posts/how-i-got-my-comptia-a-for-free-through-calbright-college.html",
     },
-    {
+{
       date:    "March 2026",
       tag:     "Homelab",
       title:   "Adding Portainer and Migrating My Docker Services",
@@ -147,4 +147,4 @@ const SITE = {
     },
   ],
 
-};
+};;
