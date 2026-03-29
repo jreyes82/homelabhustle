@@ -43,7 +43,7 @@ const SITE = {
       cat:   "Data Center",
       name:  "Colocation Ops",
       desc:  "Physical infrastructure, BMS and EPMS systems, SSH access management, rack and stack, and fiber patching.",
-      pills: ["BMS", "IPMI", "SSH", "Fiber", "Supermicro", "Dell", "HP", "Hardware Lifecycle"],
+      pills: ["BMS", "IPMI", "SSH", "Fiber", "Supermicro", "Dell", "HP", "Hardware Lifecycle", "Asset Management"],
     },
     {
       cat:   "Homelab",
