@@ -110,7 +110,7 @@ const SITE = {
         "Provisioned Linux, Windows Server, and VMware vSphere environments with detailed documentation for remote handoffs",
         "Monitored and resolved support tickets via NOC dashboard, conducting root-cause analysis to prevent recurring incidents",
         "Maintained SOC 2 security compliance including guest access, visitor logging, and secure area procedures",
-        "Oversaw asset management including intake, labeling, and inventory audits to reduce deployment errors",
+        "Oversaw asset management including intake, labeling, and inventory audits to maintain SOC 2 compliance and reduce deployment errors",
       ],
     },
     {
