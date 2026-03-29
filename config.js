@@ -37,7 +37,7 @@ const SITE = {
       cat:   "Networking",
       name:  "Network Infrastructure",
       desc:  "Layer 2/3 switching, VLAN configuration, routing protocols, NAT/PAT, QoS, VPNs, and IPSec tunneling.",
-      pills: ["OSPF", "VXLAN", "UniFi", "IPSec", "RADIUS", "TCP/IP", "DNS", "DHCP", "VPN"],
+      pills: ["VXLAN", "UniFi", "TCP/IP", "DNS", "DHCP", "VPN"],
     },
     {
       cat:   "Data Center",
