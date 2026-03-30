@@ -133,19 +133,26 @@ const SITE = {
   blog: [
     {
       date:    "March 2026",
+      tag:     "Study Notes",
+      title:   "Network+ Study Notes: IPv6 Address Simplification and Expansion",
+      excerpt: "IPv6 addresses look intimidating at first. Here's how I broke down the two biggest concepts - how to simplify them and why we needed them in the first place.",
+      href:    "posts/network-study-notes-ipv6-address-simplification-and-expansion.html",
+    },
+{
+      date:    "March 2026",
       tag:     "Homelab",
       title:   "RackNerd KVM VPS: How I Run 4 Services for $11 a Year",
       excerpt: "A full Linux VPS running Matrix, Jitsi, TeamSpeak, and a music bot for $11 a year. Here's how I found the deal and what I'm running on it.",
       href:    "posts/racknerd-kvm-vps-how-i-run-4-services-for-11-a-year.html",
     },
-    {
+{
       date:    "March 2026",
       tag:     "Career",
       title:   "How I Got My CompTIA A+ for Free Through Calbright College",
       excerpt: "The A+ exam costs $250 a pop and you need to pass two of them. Here's how I found Calbright College and got fully certified in under 6 months without paying a dime.",
       href:    "posts/how-i-got-my-comptia-a-for-free-through-calbright-college.html",
     },
-    {
+{
       date:    "March 2026",
       tag:     "Homelab",
       title:   "Adding Portainer and Migrating My Docker Services",
