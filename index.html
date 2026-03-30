@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
   /* ── HERO ── */
   .hero-bio {
@@ -17,11 +18,7 @@
 
   .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
 
-  /* ── CONTACT STRIP (mobile hero) ── */
-  .contact-strip {
-    display: flex; flex-direction: column; gap: 8px;
-    margin-bottom: 0;
-  }
+  .contact-strip { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; }
 
   .contact-link {
     display: flex; align-items: center; justify-content: space-between;
@@ -33,220 +30,96 @@
   }
 
   .contact-link:hover { border-left-color: var(--accent); color: var(--acc2); }
-  .cl-label {
-    font-family: var(--mono); font-size: 8px; letter-spacing: .15em;
-    text-transform: uppercase; color: var(--accent);
-  }
+  .cl-label { font-family: var(--mono); font-size: 8px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); }
 
   /* ── SKILLS ── */
-  .skills-grid {
-    display: grid; grid-template-columns: 1fr;
-    gap: 1px; background: var(--border); margin-bottom: 12px;
-  }
-
-  .skill-cat {
-    font-family: var(--mono); font-size: 8px; letter-spacing: .2em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
-  }
-
-  .skill-name {
-    font-family: var(--serif); font-size: 16px; font-weight: 700;
-    color: var(--light); margin-bottom: 6px;
-  }
-
+  .skills-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); margin-bottom: 12px; }
+  .skill-cat { font-family: var(--mono); font-size: 8px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .skill-name { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--light); margin-bottom: 6px; }
   .skill-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
   /* ── CERTS ── */
   .cert-row { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
-
-  .cert-item {
-    display: flex; align-items: center; gap: 8px;
-    padding: 11px 14px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-left: 3px solid var(--border); transition: border-left-color .2s;
-  }
-
+  .cert-item { display: flex; align-items: center; gap: 8px; padding: 11px 14px; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--border); transition: border-left-color .2s; }
   .cert-item:hover, .cert-item.on { border-left-color: var(--accent); }
   .cdot { width: 6px; height: 6px; border-radius: 50%; background: var(--faint); flex-shrink: 0; }
   .cdot.live { background: var(--acc2); box-shadow: 0 0 5px rgba(91,163,204,.4); }
   .cert-name { font-size: 12px; font-weight: 500; color: var(--text); }
-  .cert-sub {
-    font-family: var(--mono); font-size: 8px; letter-spacing: .08em;
-    color: var(--faint); text-transform: uppercase; margin-top: 1px;
-  }
+  .cert-sub { font-family: var(--mono); font-size: 8px; letter-spacing: .08em; color: var(--faint); text-transform: uppercase; margin-top: 1px; }
 
   /* ── PROJECTS ── */
-  .projects-grid {
-    display: grid; grid-template-columns: 1fr;
-    gap: 1px; background: var(--border);
-  }
-
-  .project-id {
-    font-family: var(--mono); font-size: 8px; letter-spacing: .2em;
-    color: var(--faint); margin-bottom: 8px;
-  }
-
-  .project-name {
-    font-family: var(--serif); font-size: 18px; font-weight: 700;
-    color: var(--light); margin-bottom: 8px; line-height: 1.2;
-  }
-
-  .project-desc {
-    font-size: 13px; font-weight: 300; color: var(--muted);
-    line-height: 1.7; margin-bottom: 12px;
-  }
+  .projects-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); }
+  .project-id { font-family: var(--mono); font-size: 8px; letter-spacing: .2em; color: var(--faint); margin-bottom: 8px; }
+  .project-name { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--light); margin-bottom: 8px; line-height: 1.2; }
+  .project-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
 
   /* ── EXPERIENCE ── */
   .exp-timeline { display: flex; flex-direction: column; position: relative; }
-
-  .exp-timeline::before {
-    content: ''; position: absolute;
-    left: 0; top: 8px; bottom: 8px;
-    width: 1px; background: var(--border);
-  }
-
-  .exp-item {
-    padding: 0 0 40px 20px; position: relative;
-  }
-
-  .exp-item::before {
-    content: ''; position: absolute; left: -4px; top: 6px;
-    width: 9px; height: 9px; border-radius: 50%;
-    background: var(--accent); border: 2px solid var(--bg);
-  }
-
+  .exp-timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+  .exp-item { padding: 0 0 40px 20px; position: relative; }
+  .exp-item::before { content: ''; position: absolute; left: -4px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
   .exp-item:last-child { padding-bottom: 0; }
   .exp-item:last-child::before { background: var(--bord2); }
-
-  .exp-period {
-    font-family: var(--mono); font-size: 9px; letter-spacing: .12em;
-    color: var(--accent); text-transform: uppercase;
-    display: block; margin-bottom: 3px;
-  }
-
+  .exp-period { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 3px; }
   .exp-company { font-size: 12px; font-weight: 500; color: var(--text); }
   .exp-loc { font-family: var(--mono); font-size: 9px; color: var(--faint); margin-bottom: 10px; }
-
-  .exp-role {
-    font-family: var(--serif); font-size: 19px; font-weight: 700;
-    color: var(--light); margin-bottom: 10px; line-height: 1.2;
-  }
-
+  .exp-role { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--light); margin-bottom: 10px; line-height: 1.2; }
   .exp-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-
-  .exp-list li {
-    font-size: 13px; font-weight: 300; color: var(--muted);
-    display: flex; gap: 10px; line-height: 1.6;
-  }
-
-  .exp-list li::before {
-    content: '–'; color: var(--accent);
-    flex-shrink: 0; font-family: var(--mono);
-  }
+  .exp-list li { font-size: 13px; font-weight: 300; color: var(--muted); display: flex; gap: 10px; line-height: 1.6; }
+  .exp-list li::before { content: '–'; color: var(--accent); flex-shrink: 0; font-family: var(--mono); }
 
   /* ── BLOG PREVIEW ── */
-  .blog-preview-grid {
-    display: grid; grid-template-columns: 1fr;
-    gap: 1px; background: var(--border);
+  .blog-featured-home {
+    display: block; text-decoration: none;
+    background: var(--surface); border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 24px; margin-bottom: 1px;
+    transition: background .2s;
   }
+  .blog-featured-home:hover { background: var(--surf2); }
+  .bfh-label { font-family: var(--mono); font-size: 8px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block; }
+  .bfh-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--light); line-height: 1.25; margin-bottom: 8px; }
+  .bfh-excerpt { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 14px; }
+  .bfh-footer { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .bfh-date { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+  .bfh-tag { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--acc2); padding: 2px 6px; border: 1px solid rgba(58,126,170,.25); }
+  .bfh-read { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-left: auto; }
 
-  .blog-preview-card {
-    background: var(--surface); padding: 20px;
-    text-decoration: none; display: block;
-    border-top: 3px solid transparent;
-    transition: background .2s, border-top-color .2s;
-  }
-
+  .blog-preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .blog-preview-card { background: var(--surface); padding: 20px; text-decoration: none; display: block; border-top: 3px solid transparent; transition: background .2s, border-top-color .2s; }
   .blog-preview-card:hover { background: var(--surf2); border-top-color: var(--accent); }
+  .bp-tag { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--acc2); display: block; margin-bottom: 8px; }
+  .bp-title { font-family: var(--serif); font-size: 14px; font-weight: 700; color: var(--light); line-height: 1.3; margin-bottom: 6px; }
+  .bp-excerpt { font-size: 11px; font-weight: 300; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+  .bp-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border); }
+  .bp-date { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+  .bp-read { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
 
-  .bp-date {
-    font-family: var(--mono); font-size: 8px; letter-spacing: .15em;
-    text-transform: uppercase; color: var(--faint); margin-bottom: 5px; display: block;
-  }
-
-  .bp-tag {
-    font-family: var(--mono); font-size: 8px; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--acc2); padding: 2px 6px;
-    border: 1px solid rgba(58,126,170,.25); display: inline-block; margin-bottom: 8px;
-  }
-
-  .bp-title {
-    font-family: var(--serif); font-size: 15px; font-weight: 700;
-    color: var(--light); line-height: 1.35; margin-bottom: 6px;
-  }
-
-  .bp-excerpt { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.6; }
-
-  .view-all {
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-top: 14px;
-    font-family: var(--mono); font-size: 10px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--accent); text-decoration: none;
-    transition: color .2s;
-  }
-
+  .view-all { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); text-decoration: none; transition: color .2s; }
   .view-all:hover { color: var(--acc2); }
 
   /* ── AVAIL CARD ── */
-  .avail-card {
-    background: var(--surface); border: 1px solid var(--border); padding: 22px;
-    margin-top: 24px;
-  }
-
-  .avail-hdr {
-    font-family: var(--mono); font-size: 8px; letter-spacing: .2em;
-    text-transform: uppercase; color: var(--faint); margin-bottom: 16px;
-  }
-
+  .avail-card { background: var(--surface); border: 1px solid var(--border); padding: 22px; margin-top: 24px; }
+  .avail-hdr { font-family: var(--mono); font-size: 8px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); margin-bottom: 16px; }
   .avail-status { display: flex; align-items: center; gap: 9px; margin-bottom: 16px; }
-
-  .avail-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--acc2); box-shadow: 0 0 7px rgba(91,163,204,.45);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  .avail-status-text {
-    font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--light);
-  }
-
+  .avail-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--acc2); box-shadow: 0 0 7px rgba(91,163,204,.45); animation: pulse 2s ease-in-out infinite; }
+  .avail-status-text { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--light); }
   .avail-roles { display: flex; flex-direction: column; gap: 8px; }
-
-  .avail-role {
-    display: flex; align-items: center; gap: 9px;
-    font-size: 13px; font-weight: 300; color: var(--muted);
-  }
-
-  .avail-role::before {
-    content: ''; display: block; width: 14px; height: 1px;
-    background: var(--accent); flex-shrink: 0;
-  }
+  .avail-role { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 300; color: var(--muted); }
+  .avail-role::before { content: ''; display: block; width: 14px; height: 1px; background: var(--accent); flex-shrink: 0; }
 
   /* ── DESKTOP OVERRIDES ── */
   @media (min-width: 768px) {
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .projects-grid { grid-template-columns: 1fr 1fr; }
-    .blog-preview-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .blog-preview-grid { grid-template-columns: 1fr 1fr; }
     .cert-row { flex-direction: row; flex-wrap: wrap; }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 32px; padding-left: 24px;
-    }
-
+    .exp-item { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding-left: 24px; }
     .contact-strip { flex-direction: column; }
-
-    .desktop-contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-    }
+    .desktop-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
   }
 
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(10px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-
+  @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
   .fade-in   { animation: fadeUp .5s ease both .1s; }
   .fade-in-2 { animation: fadeUp .5s ease both .2s; }
   .fade-in-3 { animation: fadeUp .5s ease both .3s; }
@@ -281,7 +154,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="tools.html">Tools</a></li>
-    </ul>
+  </ul>
   <div class="drawer-divider"></div>
   <div class="drawer-label">Contact</div>
   <div class="drawer-contact" id="drawer-contact"></div>
@@ -323,6 +196,7 @@
   <!-- BLOG PREVIEW -->
   <div class="section-gap" id="blog">
     <div class="section-label">Latest Posts</div>
+    <div id="blog-featured-home"></div>
     <div class="blog-preview-grid" id="blog-preview-grid"></div>
     <a href="blog.html" class="view-all">View all posts &rarr;</a>
   </div>
@@ -334,7 +208,6 @@
   const initials = SITE.name.split(' ').map(w=>w[0]).join('');
   const pills = arr => `<div class="pills">${arr.map(p=>`<span class="pill">${p}</span>`).join('')}</div>`;
 
-  /* ── POPULATE ── */
   document.getElementById('topbar-name').textContent = SITE.name;
   document.getElementById('drawer-avatar').innerHTML = '<img src="logo.svg" alt="Homelab Hustle" style="width:120px;height:72px;">';
   document.getElementById('drawer-name').textContent = SITE.name;
@@ -345,7 +218,7 @@
     <a href="${c.href}" ${c.href.startsWith('http')?'target="_blank"':''}>
       <span class="drawer-contact-label">${c.label}</span>${c.value}
     </a>`).join('');
-  
+
   document.getElementById('hero-eyebrow').textContent = 'IT Support - Data Center Technician · ' + SITE.location;
   document.getElementById('hero-name').textContent = SITE.name;
   document.getElementById('hero-bio').textContent = SITE.bio;
@@ -401,15 +274,33 @@
       </div>
     </div>`).join('');
 
-  document.getElementById('blog-preview-grid').innerHTML = SITE.blog.length
-    ? SITE.blog.map(b=>`
-        <a href="${b.href}" class="blog-preview-card">
+  if (SITE.blog.length) {
+    const [featured, ...rest] = SITE.blog;
+    document.getElementById('blog-featured-home').innerHTML = `
+      <a href="${featured.href}" class="blog-featured-home">
+        <span class="bfh-label">Latest Post</span>
+        <div class="bfh-title">${featured.title}</div>
+        <p class="bfh-excerpt">${featured.excerpt}</p>
+        <div class="bfh-footer">
+          <span class="bfh-date">${featured.date}</span>
+          <span class="bfh-tag">${featured.tag}</span>
+          <span class="bfh-read">Read post &rarr;</span>
+        </div>
+      </a>`;
+    document.getElementById('blog-preview-grid').innerHTML = rest.slice(0,4).map(b=>`
+      <a href="${b.href}" class="blog-preview-card">
+        <span class="bp-tag">${b.tag}</span>
+        <div class="bp-title">${b.title}</div>
+        <p class="bp-excerpt">${b.excerpt}</p>
+        <div class="bp-footer">
           <span class="bp-date">${b.date}</span>
-          <span class="bp-tag">${b.tag}</span>
-          <div class="bp-title">${b.title}</div>
-          <p class="bp-excerpt">${b.excerpt}</p>
-        </a>`).join('')
-    : '<div style="padding:32px;color:var(--faint);font-size:13px;background:var(--surface);">No posts yet — check back soon.</div>';
+          <span class="bp-read">Read &rarr;</span>
+        </div>
+      </a>`).join('');
+  } else {
+    document.getElementById('blog-featured-home').innerHTML = '';
+    document.getElementById('blog-preview-grid').innerHTML = '<div style="padding:32px;color:var(--faint);font-size:13px;background:var(--surface);grid-column:1/-1;">No posts yet - check back soon.</div>';
+  }
 
   /* ── HAMBURGER ── */
   const hamburger = document.getElementById('hamburger');
