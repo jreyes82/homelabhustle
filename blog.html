@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
   .filter-row {
-    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;
   }
 
   .filter-btn {
@@ -23,8 +23,62 @@
   .filter-btn:hover { border-color: var(--bord2); color: var(--text); }
   .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--light); }
 
+  /* ── FEATURED CARD ── */
+  .blog-featured {
+    display: block; text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 32px;
+    margin-bottom: 1px;
+    transition: background .2s;
+  }
+
+  .blog-featured:hover { background: var(--surf2); }
+  .blog-featured.hidden { display: none; }
+
+  .featured-label {
+    font-family: var(--mono); font-size: 8px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px; display: block;
+  }
+
+  .featured-title {
+    font-family: var(--serif); font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700; color: var(--light);
+    line-height: 1.2; margin-bottom: 12px;
+  }
+
+  .featured-excerpt {
+    font-size: 14px; font-weight: 300; color: var(--muted);
+    line-height: 1.75; margin-bottom: 18px; max-width: 600px;
+  }
+
+  .featured-footer {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+
+  .post-date {
+    font-family: var(--mono); font-size: 9px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--faint);
+  }
+
+  .post-tag {
+    font-family: var(--mono); font-size: 9px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--acc2);
+    padding: 2px 7px; border: 1px solid rgba(58,126,170,.25);
+  }
+
+  .post-readmore {
+    font-family: var(--mono); font-size: 9px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-left: auto;
+  }
+
+  /* ── SMALLER CARDS GRID ── */
   .blog-grid {
-    display: grid; grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1px; background: var(--border);
   }
 
@@ -38,45 +92,47 @@
   .blog-card:hover { background: var(--surf2); border-top-color: var(--accent); }
   .blog-card.hidden { display: none; }
 
-  .bc-meta {
-    display: flex; justify-content: space-between;
-    align-items: center; margin-bottom: 10px;
-  }
-
-  .bc-date {
-    font-family: var(--mono); font-size: 9px; letter-spacing: .15em;
-    text-transform: uppercase; color: var(--faint);
-  }
-
   .bc-tag {
-    font-family: var(--mono); font-size: 9px; letter-spacing: .1em;
+    font-family: var(--mono); font-size: 8px; letter-spacing: .1em;
     text-transform: uppercase; color: var(--acc2);
-    padding: 2px 7px; border: 1px solid rgba(58,126,170,.25);
+    margin-bottom: 10px; display: block;
   }
 
   .bc-title {
-    font-family: var(--serif); font-size: 18px; font-weight: 700;
+    font-family: var(--serif); font-size: 15px; font-weight: 700;
     color: var(--light); line-height: 1.3; margin-bottom: 8px;
   }
 
   .bc-excerpt {
-    font-size: 13px; font-weight: 300; color: var(--muted);
-    line-height: 1.7; margin-bottom: 14px;
+    font-size: 12px; font-weight: 300; color: var(--muted);
+    line-height: 1.65; margin-bottom: 14px;
+  }
+
+  .bc-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 12px; border-top: 1px solid var(--border);
+  }
+
+  .bc-date {
+    font-family: var(--mono); font-size: 8px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--faint);
   }
 
   .bc-read {
-    font-family: var(--mono); font-size: 9px; letter-spacing: .12em;
+    font-family: var(--mono); font-size: 8px; letter-spacing: .1em;
     text-transform: uppercase; color: var(--accent);
   }
 
   .empty-state {
     padding: 48px 24px; text-align: center;
     font-size: 13px; color: var(--faint);
-    background: var(--surface);
+    background: var(--surface); grid-column: 1/-1;
   }
 
-  @media (min-width: 768px) {
-    .blog-grid { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 600px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .featured-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .post-readmore { margin-left: 0; }
   }
 </style>
 </head>
@@ -102,12 +158,13 @@
   <div class="drawer-label">Navigate</div>
   <ul class="drawer-nav">
     <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#projects">Projects</a></li>
     <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
     <li><a href="index.html#experience">Experience</a></li>
     <li><a href="blog.html" class="active">Blog</a></li>
     <li><a href="tools.html">Tools</a></li>
-    </ul>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
   <div class="drawer-divider"></div>
   <div class="drawer-label">Contact</div>
   <div class="drawer-contact" id="drawer-contact"></div>
@@ -118,15 +175,15 @@
   <h1 class="page-title">Blog</h1>
   <div class="page-rule"></div>
   <div class="filter-row" id="filters"></div>
+  <div id="featured-wrap"></div>
   <div class="blog-grid" id="blog-grid"></div>
 </main>
 
 <script>
   document.title = 'Blog — ' + SITE.name;
-  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
 
   document.getElementById('topbar-name').textContent = SITE.name;
-  document.getElementById('drawer-avatar').innerHTML = '<img src="logo.svg" alt="Homelab Hustle" style="width:120px;height:72px;">';
+  document.getElementById('drawer-avatar').innerHTML = '<img src="logo.svg" alt="Homelab Hustle" style="width:160px;height:96px;display:block;margin:0 auto;">';
   document.getElementById('drawer-name').textContent = SITE.name;
   document.getElementById('drawer-role').textContent = SITE.role;
   document.getElementById('drawer-status').textContent = SITE.status;
@@ -136,41 +193,73 @@
       <span class="drawer-contact-label">${c.label}</span>${c.value}
     </a>`).join('');
 
-  /* filters */
+  /* ── FILTERS ── */
   const tags = ['All', ...new Set(SITE.blog.map(b=>b.tag))];
-  let active = 'All';
+  let activeTag = 'All';
   const filterRow = document.getElementById('filters');
+
   tags.forEach(tag => {
     const btn = document.createElement('button');
     btn.className = 'filter-btn' + (tag==='All'?' active':'');
     btn.textContent = tag;
     btn.onclick = () => {
-      active = tag;
+      activeTag = tag;
       document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-      document.querySelectorAll('.blog-card').forEach(card=>{
-        card.classList.toggle('hidden', active!=='All' && card.dataset.tag!==active);
-      });
+      renderPosts();
     };
     filterRow.appendChild(btn);
   });
 
-  /* grid */
-  const grid = document.getElementById('blog-grid');
-  grid.innerHTML = SITE.blog.length
-    ? SITE.blog.map(b=>`
-        <a href="${b.href}" class="blog-card" data-tag="${b.tag}">
-          <div class="bc-meta">
-            <span class="bc-date">${b.date}</span>
-            <span class="bc-tag">${b.tag}</span>
-          </div>
-          <div class="bc-title">${b.title}</div>
-          <p class="bc-excerpt">${b.excerpt}</p>
-          <span class="bc-read">Read post &rarr;</span>
-        </a>`).join('')
-    : '<div class="empty-state">No posts yet — check back soon.</div>';
+  /* ── RENDER ── */
+  function renderPosts() {
+    const filtered = activeTag === 'All'
+      ? SITE.blog
+      : SITE.blog.filter(b => b.tag === activeTag);
 
-  /* hamburger */
+    const featuredWrap = document.getElementById('featured-wrap');
+    const grid = document.getElementById('blog-grid');
+
+    if (filtered.length === 0) {
+      featuredWrap.innerHTML = '';
+      grid.innerHTML = '<div class="empty-state">No posts yet — check back soon.</div>';
+      return;
+    }
+
+    const [featured, ...rest] = filtered;
+
+    featuredWrap.innerHTML = `
+      <a href="${featured.href}" class="blog-featured">
+        <span class="featured-label">Latest Post</span>
+        <div class="featured-title">${featured.title}</div>
+        <p class="featured-excerpt">${featured.excerpt}</p>
+        <div class="featured-footer">
+          <span class="post-date">${featured.date}</span>
+          <span class="post-tag">${featured.tag}</span>
+          <span class="post-readmore">Read post &rarr;</span>
+        </div>
+      </a>`;
+
+    if (rest.length === 0) {
+      grid.innerHTML = '';
+      return;
+    }
+
+    grid.innerHTML = rest.map(b=>`
+      <a href="${b.href}" class="blog-card" data-tag="${b.tag}">
+        <span class="bc-tag">${b.tag}</span>
+        <div class="bc-title">${b.title}</div>
+        <p class="bc-excerpt">${b.excerpt}</p>
+        <div class="bc-footer">
+          <span class="bc-date">${b.date}</span>
+          <span class="bc-read">Read &rarr;</span>
+        </div>
+      </a>`).join('');
+  }
+
+  renderPosts();
+
+  /* ── HAMBURGER ── */
   const hamburger = document.getElementById('hamburger');
   const drawer = document.getElementById('drawer');
   hamburger.addEventListener('click', () => {
@@ -186,6 +275,5 @@
     });
   });
 </script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b006c9d254ce4722ab812483400db9cb"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
