@@ -132,6 +132,13 @@ const SITE = {
   /* The admin panel manages this automatically - do not edit manually */
   blog: [
     {
+      date:    "April 2026",
+      tag:     "Study Notes",
+      title:   "Network+ Study Notes: Subnetting — Why We Need It and How to Do It",
+      excerpt: "Subnetting took me a while to click — CIDR notation, host ranges, network addresses, all of it. Here's the full breakdown I wish I had from the start, with exam tips throughout.",
+      href:    "posts/network-study-notes-subnetting-why-we-need-it-and-how-to-do-it.html",
+    },
+{
       date:    "March 2026",
       tag:     "Study Notes",
       title:   "Network+ Study Notes: IPv6 Address Simplification and Expansion",
