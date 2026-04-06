@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network+ Study Notes: Subnetting — Why We Need It and How to Do It — Homelab Hustle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+  .post-meta { display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap; }
+  .post-tag { font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc2);padding:3px 9px;border:1px solid rgba(58,126,170,.3); }
+  .post-date { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint); }
+  .post-read { font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--faint); }
+  .post-body { font-size:15px;font-weight:300;color:var(--text);line-height:1.9; }
+  .post-body h2 { font-family:var(--serif);font-size:22px;font-weight:700;color:var(--light);margin:36px 0 12px;line-height:1.2; }
+  .post-body h3 { font-family:var(--serif);font-size:17px;font-weight:700;color:var(--light);margin:24px 0 8px; }
+  .post-body p { margin-bottom:18px; }
+  .post-body ul,.post-body ol { padding-left:20px;margin-bottom:18px; }
+  .post-body li { margin-bottom:6px; }
+  .post-body a { color:var(--acc2);text-decoration:none;border-bottom:1px solid rgba(91,163,204,.3); }
+  .post-body a:hover { border-bottom-color:var(--acc2); }
+  .post-body pre { background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);padding:16px;overflow-x:auto;margin:20px 0; }
+  .post-body code { font-family:var(--mono);font-size:12px;color:var(--acc2);line-height:1.7; }
+  .post-body p code,.post-body li code { background:var(--bg2);border:1px solid var(--border);padding:1px 6px;font-size:12px;color:var(--acc2); }
+  .note { background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--acc2);padding:14px 18px;margin:20px 0;font-size:13px;color:var(--muted); }
+  .note strong { color:var(--acc2);font-weight:500; }
+  .post-footer { display:flex;justify-content:space-between;align-items:center;padding-top:36px;margin-top:44px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px; }
+  .post-back { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s; }
+  .post-back:hover { color:var(--acc2); }
+  .post-tags { display:flex;gap:6px;flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<script src="../config.js"></script>
+<header id="topbar">
+  <a href="../index.html" class="topbar-logo" id="topbar-name"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav id="drawer">
+  <div class="drawer-avatar" id="drawer-avatar"></div>
+  <div class="drawer-name" id="drawer-name"></div>
+  <div class="drawer-role" id="drawer-role"></div>
+  <div class="drawer-status"><div class="drawer-dot"></div><span id="drawer-status"></span></div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Navigate</div>
+  <ul class="drawer-nav">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Contact</div>
+  <div class="drawer-contact" id="drawer-contact"></div>
+</nav>
+<main id="main">
+  <div class="page-eyebrow">Study Notes</div>
+  <h1 class="page-title">Network+ Study Notes: Subnetting — Why We Need It and How to Do It</h1>
+  <div class="page-rule"></div>
+  <div class="post-meta">
+    <span class="post-tag">Study Notes</span>
+    <span class="post-date">April 2026</span>
+    <span class="post-read">5 min read</span>
+  </div>
+  <!-- excerpt stored for blog index -->
+  <meta name="description" data-excerpt="Subnetting took me a while to click — CIDR notation, host ranges, network addresses, all of it. Here's the full breakdown I wish I had from the start, with exam tips throughout." content="Subnetting took me a while to click — CIDR notation, host ranges, network addresses, all of it. Here's the full breakdown I wish I had from the start, with exam tips throughout.">
+  <div class="post-body">
+<p>Subnetting was not new to me going into Network+. I had worked with IP addresses throughout my IT career — assigning them, troubleshooting connectivity, configuring basic network gear. But I had never gone deep on the math behind it. I knew how to use subnets. I did not really understand how they worked. The Network+ curriculum changed that, and this post covers everything I learned going further than I ever had before.</p>
+
+<h2>Why Subnetting Exists</h2>
+
+<p>Before IPv6 came along, the internet ran on IPv4. IPv4 uses 32-bit addresses which gives you a maximum of about 4.3 billion unique addresses. That sounds like a lot, but the early designers of the internet made some decisions about how to allocate those addresses that turned out to be very wasteful.</p>
+
+<p>Originally, IP addresses were divided into classes:</p>
+
+<ul>
+  <li><strong>Class A</strong> — first octet 1-126. Supports 16 million hosts per network. There are only 126 Class A networks in existence.</li>
+  <li><strong>Class B</strong> — first octet 128-191. Supports 65,534 hosts per network.</li>
+  <li><strong>Class C</strong> — first octet 192-223. Supports 254 hosts per network.</li>
+</ul>
+
+<p>The problem with classful addressing is the waste. If a company needed 300 hosts, they would get a Class B network which supports 65,534 hosts. That is 65,234 addresses sitting unused, permanently unavailable to anyone else. Multiply that across thousands of organizations and you burn through your address space fast.</p>
+
+<p>Subnetting was the solution. Instead of handing out massive fixed blocks, subnetting lets you take a network and carve it up into smaller, more appropriately sized pieces. A company that needs 300 hosts gets a subnet that supports around 510 — not 65,534. The rest of that address space goes back into the pool.</p>
+
+<div class="note"><strong>Exam tip:</strong> Know the three IP address classes, their ranges, and default subnet masks cold. Class A = /8, Class B = /16, Class C = /24. These show up constantly.</div>
+
+<h2>Understanding IP Addresses in Binary</h2>
+
+<p>You cannot truly understand subnetting without understanding binary. The good news is you only need to understand one concept: an IP address is 32 bits, divided into four groups of 8 bits called octets. Each octet can be a value from 0 to 255.</p>
+
+<p>Each bit position in an octet has a value:</p>
+
+<pre><code>128  64  32  16   8   4   2   1
+  1   1   0   0   0   0   0   0  =  192
+  1   0   1   0   1   0   1   0  =  170
+  1   1   1   1   1   1   1   1  =  255
+  0   0   0   0   0   0   0   0  =  0</code></pre>
+
+<p>To convert an octet to binary, work from left to right. Does 128 fit? Yes — write a 1 and subtract. Does 64 fit in the remainder? And so on.</p>
+
+<div class="note"><strong>Exam tip:</strong> Memorize these eight values: 128, 64, 32, 16, 8, 4, 2, 1. You will use them constantly during the exam. Also memorize the common sums: 192 (128+64), 224 (128+64+32), 240 (128+64+32+16), 248, 252, 254, 255.</div>
+
+<h2>What a Subnet Mask Does</h2>
+
+<p>A subnet mask is also a 32-bit number, written alongside an IP address. Its job is to define which part of an IP address is the network portion and which part is the host portion.</p>
+
+<p>In a subnet mask, all the 1 bits represent the network portion, and all the 0 bits represent the host portion. The 1s always come first, followed by the 0s — they never alternate.</p>
+
+<pre><code>IP Address:    192.168.1.100
+Subnet Mask:   255.255.255.0
+
+In binary:
+IP:   11000000.10101000.00000001.01100100
+Mask: 11111111.11111111.11111111.00000000
+      |-------- network --------|--host--|</code></pre>
+
+<p>In this example the first three octets (24 bits) are the network, and the last octet (8 bits) is the host. This is a /24 network — which brings us to CIDR.</p>
+
+<h2>CIDR Notation</h2>
+
+<p>CIDR stands for Classless Inter-Domain Routing. It is a shorthand way of writing a subnet mask. Instead of writing 255.255.255.0, you write /24 — because there are 24 ones in the subnet mask.</p>
+
+<pre><code>255.0.0.0       = /8
+255.255.0.0     = /16
+255.255.255.0   = /24
+255.255.255.128 = /25
+255.255.255.192 = /26
+255.255.255.224 = /27
+255.255.255.240 = /28
+255.255.255.248 = /29
+255.255.255.252 = /30</code></pre>
+
+<div class="note"><strong>Exam tip:</strong> Memorize the entire table above. Know the CIDR prefix, the dotted decimal subnet mask, the number of hosts per subnet, and the block size. The exam will test all of these.</div>
+
+<h2>Calculating the Number of Hosts</h2>
+
+<p>Once you know the subnet mask, calculating the number of usable hosts is straightforward:</p>
+
+<pre><code>Usable hosts = 2^(host bits) - 2</code></pre>
+
+<p>You subtract 2 because the first address in every subnet is the network address and the last address is the broadcast address. Neither can be assigned to a device.</p>
+
+<pre><code>/24 = 8 host bits  = 2^8  - 2 = 254 usable hosts
+/25 = 7 host bits  = 2^7  - 2 = 126 usable hosts
+/26 = 6 host bits  = 2^6  - 2 = 62 usable hosts
+/27 = 5 host bits  = 2^5  - 2 = 30 usable hosts
+/28 = 4 host bits  = 2^4  - 2 = 14 usable hosts
+/29 = 3 host bits  = 2^3  - 2 = 6 usable hosts
+/30 = 2 host bits  = 2^2  - 2 = 2 usable hosts</code></pre>
+
+<div class="note"><strong>Exam tip:</strong> /30 networks (2 usable hosts) are used almost exclusively for point-to-point links between routers. If you see /30 on the exam, think router-to-router connection.</div>
+
+<h2>Finding the Network Address</h2>
+
+<p>The network address is the first address in a subnet. It identifies the subnet itself and cannot be assigned to a host. To find it, perform a bitwise AND between the IP address and the subnet mask.</p>
+
+<p>Example: What is the network address for 192.168.1.130/26?</p>
+
+<pre><code>Subnet mask for /26:
+11111111.11111111.11111111.11000000 = 255.255.255.192
+
+IP in binary:   11000000.10101000.00000001.10000010
+Mask in binary: 11111111.11111111.11111111.11000000
+AND result:     11000000.10101000.00000001.10000000
+
+Network address = 192.168.1.128</code></pre>
+
+<p>The shortcut: for /26 the block size is 64 (2^6 = 64). Subnets fall on multiples of 64: 0, 64, 128, 192. The address 130 falls between 128 and 192, so the network address is 192.168.1.128.</p>
+
+<div class="note"><strong>Exam tip:</strong> Learn the block size shortcut — it is much faster than binary AND during the exam. Block size = 256 minus the last non-255 octet of the subnet mask. For 255.255.255.192, block size = 256 - 192 = 64.</div>
+
+<h2>Finding the Broadcast Address</h2>
+
+<p>The broadcast address is the last address in a subnet. It is always one less than the next network address.</p>
+
+<pre><code>Network address      = 192.168.1.128
+Block size           = 64
+Next network address = 192.168.1.128 + 64 = 192.168.1.192
+Broadcast address    = 192.168.1.192 - 1  = 192.168.1.191</code></pre>
+
+<h2>Finding the Host Range</h2>
+
+<p>The usable host range is everything between the network address and the broadcast address:</p>
+
+<pre><code>Network address:   192.168.1.128
+First usable host: 192.168.1.129
+Last usable host:  192.168.1.190
+Broadcast address: 192.168.1.191</code></pre>
+
+<h2>Putting It All Together - A Full Example</h2>
+
+<p>Given: 172.16.45.200/20 — find the network address, broadcast address, and host range.</p>
+
+<pre><code>Step 1 - Subnet mask for /20
+255.255.240.0
+
+Step 2 - Block size
+Interesting octet is the third: 256 - 240 = 16
+Subnets in third octet: 0, 16, 32, 48...
+
+Step 3 - Which subnet does 45 fall in?
+45 falls between 32 and 48
+Network address = 172.16.32.0
+
+Step 4 - Broadcast address
+Next network = 172.16.48.0
+Broadcast    = 172.16.47.255
+
+Step 5 - Host range
+First host: 172.16.32.1
+Last host:  172.16.47.254
+
+Step 6 - Usable hosts
+/20 = 12 host bits = 2^12 - 2 = 4094 usable hosts</code></pre>
+
+<div class="note"><strong>Exam tip:</strong> When the interesting octet is not the last one, all bits after it are host bits. For /20, the third octet has 4 host bits and the entire fourth octet adds 8 more — 12 host bits total.</div>
+
+<h2>Number of Subnets</h2>
+
+<p>The exam may ask how many subnets a given mask creates within a classful network. The formula is:</p>
+
+<pre><code>Number of subnets = 2^(subnet bits borrowed)</code></pre>
+
+<p>Starting with a Class C network (/24) and subnetting to /26 means borrowing 2 bits:</p>
+
+<pre><code>2^2 = 4 subnets
+Each /26 has 62 usable hosts
+4 x 64 = 256 -- the full /24 address space accounted for</code></pre>
+
+<h2>Private IP Address Ranges</h2>
+
+<p>These ranges are reserved for private use and are not routed on the public internet:</p>
+
+<pre><code>Class A: 10.0.0.0    - 10.255.255.255   (/8)
+Class B: 172.16.0.0  - 172.31.255.255   (/12)
+Class C: 192.168.0.0 - 192.168.255.255  (/16)</code></pre>
+
+<div class="note"><strong>Exam tip:</strong> Any IP in these ranges is private and requires NAT to reach the public internet. Know these ranges without hesitation.</div>
+
+<h2>Special Addresses to Know</h2>
+
+<ul>
+  <li><strong>127.0.0.1</strong> — loopback. Tests the local network stack. Traffic never leaves the machine.</li>
+  <li><strong>169.254.x.x</strong> — APIPA. Assigned automatically when a device cannot reach a DHCP server. If you see this on a client, DHCP is not working.</li>
+  <li><strong>0.0.0.0</strong> — unspecified address. Used before a device has an IP assigned.</li>
+  <li><strong>255.255.255.255</strong> — limited broadcast. Sent to all hosts on the local segment.</li>
+</ul>
+
+<div class="note"><strong>Exam tip:</strong> 169.254.x.x is a major hint on the exam. Any scenario where a host cannot communicate and has a 169.254 address means the DHCP server is unreachable.</div>
+
+<h2>Quick Reference Cheat Sheet</h2>
+
+<pre><code>CIDR  | Mask              | Hosts  | Block Size
+------+-------------------+--------+-----------
+/24   | 255.255.255.0     | 254    | 256
+/25   | 255.255.255.128   | 126    | 128
+/26   | 255.255.255.192   | 62     | 64
+/27   | 255.255.255.224   | 30     | 32
+/28   | 255.255.255.240   | 14     | 16
+/29   | 255.255.255.248   | 6      | 8
+/30   | 255.255.255.252   | 2      | 4</code></pre>
+
+<h2>Exam Strategy</h2>
+
+<p>The Network+ exam will give you subnetting questions under time pressure. Here is the approach that works:</p>
+
+<ol>
+  <li>Identify the CIDR prefix and convert to subnet mask if needed</li>
+  <li>Find the interesting octet — the one that is not 255 or 0</li>
+  <li>Calculate the block size: 256 minus the interesting octet value</li>
+  <li>Find which block the IP address falls in</li>
+  <li>Network address = start of that block</li>
+  <li>Broadcast = start of next block minus 1</li>
+  <li>Host range = network + 1 to broadcast - 1</li>
+</ol>
+
+<p>Practice this process until you can do it in under 60 seconds. Use real IP addresses and work through at least 20 problems before the exam. The math is always the same — once the steps are automatic, subnetting questions become some of the easiest points on the test.</p>
+
+<p>I already knew subnetting existed and had used it in the field. What the Network+ material gave me was the understanding of why each step works the way it does. Going deeper than surface level made the whole thing click in a way that just configuring gear never did.</p>
+  </div><!-- POST FOOTER -->
+  <div class="post-footer">
+    <a href="../blog.html" class="post-back">&larr; Back to blog</a>
+    <div class="post-tags"><span class="pill">Study Notes</span></div>
+  </div>
+  <div style="height:48px;"></div>
+</main>
+<script>
+  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
+  document.getElementById('topbar-name').textContent = SITE.name;
+  document.getElementById('drawer-avatar').textContent = initials;
+  document.getElementById('drawer-name').textContent = SITE.name;
+  document.getElementById('drawer-role').textContent = SITE.role;
+  document.getElementById('drawer-status').textContent = SITE.status;
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>
+    '<a href="'+c.href+'" '+(c.href.startsWith('http')?'target="_blank"':'')+'><span class="drawer-contact-label">'+c.label+'</span>'+c.value+'</a>'
+  ).join('');
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
