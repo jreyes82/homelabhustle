@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContainerWatch: Building My Own Docker Dashboard from Scratch — Homelab Hustle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+  .post-meta { display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap; }
+  .post-tag { font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc2);padding:3px 9px;border:1px solid rgba(58,126,170,.3); }
+  .post-date { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint); }
+  .post-read { font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--faint); }
+  .post-body { font-size:15px;font-weight:300;color:var(--text);line-height:1.9; }
+  .post-body h2 { font-family:var(--serif);font-size:22px;font-weight:700;color:var(--light);margin:36px 0 12px;line-height:1.2; }
+  .post-body h3 { font-family:var(--serif);font-size:17px;font-weight:700;color:var(--light);margin:24px 0 8px; }
+  .post-body p { margin-bottom:18px; }
+  .post-body ul,.post-body ol { padding-left:20px;margin-bottom:18px; }
+  .post-body li { margin-bottom:6px; }
+  .post-body a { color:var(--acc2);text-decoration:none;border-bottom:1px solid rgba(91,163,204,.3); }
+  .post-body a:hover { border-bottom-color:var(--acc2); }
+  .post-body pre { background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);padding:16px;overflow-x:auto;margin:20px 0; }
+  .post-body code { font-family:var(--mono);font-size:12px;color:var(--acc2);line-height:1.7; }
+  .post-body p code,.post-body li code { background:var(--bg2);border:1px solid var(--border);padding:1px 6px;font-size:12px;color:var(--acc2); }
+  .note { background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--acc2);padding:14px 18px;margin:20px 0;font-size:13px;color:var(--muted); }
+  .note strong { color:var(--acc2);font-weight:500; }
+  .post-footer { display:flex;justify-content:space-between;align-items:center;padding-top:36px;margin-top:44px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px; }
+  .post-back { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s; }
+  .post-back:hover { color:var(--acc2); }
+  .post-tags { display:flex;gap:6px;flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<script src="../config.js"></script>
+<header id="topbar">
+  <a href="../index.html" class="topbar-logo" id="topbar-name"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav id="drawer">
+  <div class="drawer-avatar" id="drawer-avatar"></div>
+  <div class="drawer-name" id="drawer-name"></div>
+  <div class="drawer-role" id="drawer-role"></div>
+  <div class="drawer-status"><div class="drawer-dot"></div><span id="drawer-status"></span></div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Navigate</div>
+  <ul class="drawer-nav">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Contact</div>
+  <div class="drawer-contact" id="drawer-contact"></div>
+</nav>
+<main id="main">
+  <div class="page-eyebrow">Homelab</div>
+  <h1 class="page-title">ContainerWatch: Building My Own Docker Dashboard from Scratch</h1>
+  <div class="page-rule"></div>
+  <div class="post-meta">
+    <span class="post-tag">Homelab</span>
+    <span class="post-date">April 2026</span>
+    <span class="post-read">8 min read</span>
+  </div>
+  <!-- excerpt stored for blog index -->
+  <meta name="description" data-excerpt="Portainer is great until it isn't. Here's why I built ContainerWatch — a custom Flask dashboard that does exactly what I need and nothing I don't." content="Portainer is great until it isn't. Here's why I built ContainerWatch — a custom Flask dashboard that does exactly what I need and nothing I don't.">
+  <div class="post-body">
+<p>I ran Portainer for a long time. It works, it's stable, and for most people it's all they need. But over time I kept running into the same friction — it's a heavy application built for teams managing large environments, and I'm one person managing a homelab. I wanted something lighter, faster, and built specifically around what I actually do every day. So I built ContainerWatch.</p>
+
+<h2>Why Not Just Use Portainer</h2>
+
+<p>Portainer does a lot. That's the problem. Half the features I never touch, and the ones I care about most — knowing whether my container images are out of date — require navigating through multiple screens and still don't give me a clean at-a-glance answer. I also wanted Discord notifications when something needed attention, and I wanted to be able to scan Python dependencies inside my containers without SSH-ing in manually.</p>
+
+<p>None of that was impossible with Portainer, but none of it was easy either. The simpler option was to build exactly what I wanted.</p>
+
+<h2>What ContainerWatch Does</h2>
+
+<p>ContainerWatch is a Flask and Python web application that runs as a Docker container and communicates with the Docker socket to monitor everything else running on the host. The core features are:</p>
+
+<ul>
+  <li><strong>Image update checking</strong> — compares the digest of each running container's image against the remote registry. Supports Docker Hub, GHCR, and LSCR. Shows clearly which containers are up to date and which have updates available.</li>
+  <li><strong>One-click updates</strong> — pull the latest image and restart a container directly from the dashboard with a live log stream showing exactly what's happening.</li>
+  <li><strong>Dependency scanning</strong> — runs pip inside Python-based containers to check for outdated packages, and can upgrade them in place with a live output stream.</li>
+  <li><strong>Live container logs</strong> — tail logs from any running container directly in the browser without touching the CLI.</li>
+  <li><strong>Discord notifications</strong> — sends a webhook notification when a scan finds outdated containers, with a configurable auto-scan interval.</li>
+  <li><strong>Scan history</strong> — stores every scan result in SQLite so you can see how your containers have changed over time.</li>
+</ul>
+
+<h2>The Stack</h2>
+
+<p>The backend is Python and Flask. It connects to the Docker socket via the Docker SDK, which gives it full access to inspect containers, pull images, stream logs, and execute commands inside running containers. All scan history and settings are stored in SQLite via a mounted volume so data persists across container restarts.</p>
+
+<p>The frontend is a single HTML file served by Flask. No JavaScript frameworks — just vanilla JS making API calls to the Flask backend. It keeps the whole thing simple and fast.</p>
+
+<p>It runs behind Cloudflare Zero Trust so it's accessible remotely without exposing any ports to the public internet.</p>
+
+<pre><code>services:
+  containerwatch:
+    build: .
+    container_name: containerwatch
+    ports:
+      - "6080:5000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - containerwatch-data:/data
+    restart: unless-stopped
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - DB_PATH=/data/containerwatch.db
+
+volumes:
+  containerwatch-data:</code></pre>
+
+<h2>The Hard Part - Registry Checks</h2>
+
+<p>The trickiest part of the build was getting image update checks to work reliably across different registries. The approach is to compare the digest of the locally running image against the digest of the latest tag on the remote registry. If they match, the container is up to date. If they don't, there is an update available.</p>
+
+<p>The complication is that every registry handles authentication differently. Docker Hub uses one token endpoint, GHCR uses another, and LSCR (LinuxServer) uses a third. Each one also has slightly different behavior around manifest formats and the headers required to get a proper digest back.</p>
+
+<p>Getting all three working consistently — and handling edge cases like private images, missing tags, and registry timeouts — took more iteration than any other part of the project. The final implementation uses a shared requests session with connection pooling and retries, which also helped with performance when scanning a large number of containers at once.</p>
+
+<div class="note"><strong>Note:</strong> The registry check compares image digests, not version tags. This means it catches updates even when the tag stays the same (like <code>latest</code>), which is the more reliable approach.</div>
+
+<h2>What I Use It For Daily</h2>
+
+<p>The features I reach for most are image update checking and Discord notifications. I have ContainerWatch set to run an automatic scan on a schedule, and when something is outdated it pings my Discord server. I open the dashboard, see what needs updating, click update, watch the log stream, done. The whole process takes about two minutes per container and I never have to touch the CLI unless something goes wrong.</p>
+
+<p>The dependency scanner gets used less frequently but it's useful for my Python-based containers — particularly the bots and custom services where I want to keep packages current without rebuilding the image.</p>
+
+<h2>What I Learned</h2>
+
+<p>Building ContainerWatch taught me more about how Docker actually works under the hood than years of just using it did. Working directly with the Docker SDK, understanding image manifests and digest comparison, handling the Docker socket from inside a container — all of that gave me a much deeper understanding of the infrastructure I run every day.</p>
+
+<p>It also reinforced something I already believed: the best tool for a specific job is often a small one built exactly for that job. ContainerWatch does less than Portainer and that is entirely the point.</p>
+  </div><!-- POST FOOTER -->
+  <div class="post-footer">
+    <a href="../blog.html" class="post-back">&larr; Back to blog</a>
+    <div class="post-tags"><span class="pill">Homelab</span></div>
+  </div>
+  <div style="height:48px;"></div>
+</main>
+<script>
+  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
+  document.getElementById('topbar-name').textContent = SITE.name;
+  document.getElementById('drawer-avatar').textContent = initials;
+  document.getElementById('drawer-name').textContent = SITE.name;
+  document.getElementById('drawer-role').textContent = SITE.role;
+  document.getElementById('drawer-status').textContent = SITE.status;
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>
+    '<a href="'+c.href+'" '+(c.href.startsWith('http')?'target="_blank"':'')+'><span class="drawer-contact-label">'+c.label+'</span>'+c.value+'</a>'
+  ).join('');
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
