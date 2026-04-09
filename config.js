@@ -96,6 +96,12 @@ const SITE = {
       desc:  "Migrated five self-hosted services from standalone Docker containers into managed Portainer stacks on Windows 11. Converted to docker-compose deployments, resolved port conflicts during migration, and centralized container management and monitoring.",
       pills: ["Docker", "Portainer", "Windows 11", "docker-compose"],
     },
+    {
+      id:    "Project 05",
+      name:  "ContainerWatch",
+      desc:  "Custom Flask and Python Docker management dashboard built from scratch and deployed as a container. Monitors running containers, checks images against remote registries for updates, triggers one-click pulls, scans Python dependencies inside containers, streams live logs, and sends Discord notifications. Runs behind Cloudflare Zero Trust at containerwatch.reddeadmedia.com.",
+      pills: ["Python", "Flask", "Docker", "SQLite", "Cloudflare ZT"],
+    },
   ],
 
   /* ---- EXPERIENCE ------------------------------------------- */
