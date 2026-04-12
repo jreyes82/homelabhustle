@@ -99,7 +99,7 @@ const SITE = {
     {
       id:    "Project 05",
       name:  "ContainerWatch",
-      desc:  "Custom Flask and Python Docker management dashboard built from scratch and deployed as a container. Monitors running containers, checks images against remote registries for updates, triggers one-click pulls, scans Python dependencies inside containers, streams live logs, and sends Discord notifications. Runs behind Cloudflare Zero Trust at containerwatch.reddeadmedia.com.",
+      desc:  "Custom Flask and Python Docker management dashboard built from scratch and deployed as a container. Monitors running containers, checks images against remote registries for updates, triggers one-click pulls, scans Python dependencies inside containers, streams live logs, and sends Discord notifications. Runs behind Cloudflare Zero Trust.",
       pills: ["Python", "Flask", "Docker", "SQLite", "Cloudflare ZT"],
     },
   ],
