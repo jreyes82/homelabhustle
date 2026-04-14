@@ -139,16 +139,23 @@ const SITE = {
   blog: [
     {
       date:    "April 2026",
+      tag:     "Networking",
+      title:   "test",
+      excerpt: "",
+      href:    "posts/test.html",
+    },
+{
+      date:    "April 2026",
       tag:     "Homelab",
       title:   "ContainerWatch: Building My Own Docker Dashboard from Scratch",
-      excerpt: "Portainer is great until it isn't. Here's why I built ContainerWatch — a custom Flask dashboard that does exactly what I need and nothing I don't.",
+      excerpt: "Portainer is great until it isn't. Here's why I built ContainerWatch â a custom Flask dashboard that does exactly what I need and nothing I don't.",
       href:    "posts/containerwatch-building-my-own-docker-dashboard-from-scratch.html",
     },
 {
       date:    "April 2026",
       tag:     "Study Notes",
-      title:   "Network+ Study Notes: Subnetting â Why We Need It and How to Do It",
-      excerpt: "Subnetting took me a while to click â CIDR notation, host ranges, network addresses, all of it. Here's the full breakdown I wish I had from the start, with exam tips throughout.",
+      title:   "Network+ Study Notes: Subnetting Ã¢ÂÂ Why We Need It and How to Do It",
+      excerpt: "Subnetting took me a while to click Ã¢ÂÂ CIDR notation, host ranges, network addresses, all of it. Here's the full breakdown I wish I had from the start, with exam tips throughout.",
       href:    "posts/network-study-notes-subnetting-why-we-need-it-and-how-to-do-it.html",
     },
 {
