@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>test — Homelab Hustle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+  .post-meta { display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap; }
+  .post-tag { font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc2);padding:3px 9px;border:1px solid rgba(58,126,170,.3); }
+  .post-date { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint); }
+  .post-read { font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--faint); }
+  .post-body { font-size:15px;font-weight:300;color:var(--text);line-height:1.9; }
+  .post-body h2 { font-family:var(--serif);font-size:22px;font-weight:700;color:var(--light);margin:36px 0 12px;line-height:1.2; }
+  .post-body h3 { font-family:var(--serif);font-size:17px;font-weight:700;color:var(--light);margin:24px 0 8px; }
+  .post-body p { margin-bottom:18px; }
+  .post-body ul,.post-body ol { padding-left:20px;margin-bottom:18px; }
+  .post-body li { margin-bottom:6px; }
+  .post-body a { color:var(--acc2);text-decoration:none;border-bottom:1px solid rgba(91,163,204,.3); }
+  .post-body a:hover { border-bottom-color:var(--acc2); }
+  .post-body pre { background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);padding:16px;overflow-x:auto;margin:20px 0; }
+  .post-body code { font-family:var(--mono);font-size:12px;color:var(--acc2);line-height:1.7; }
+  .post-body p code,.post-body li code { background:var(--bg2);border:1px solid var(--border);padding:1px 6px;font-size:12px;color:var(--acc2); }
+  .note { background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--acc2);padding:14px 18px;margin:20px 0;font-size:13px;color:var(--muted); }
+  .note strong { color:var(--acc2);font-weight:500; }
+  .post-footer { display:flex;justify-content:space-between;align-items:center;padding-top:36px;margin-top:44px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px; }
+  .post-back { font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s; }
+  .post-back:hover { color:var(--acc2); }
+  .post-tags { display:flex;gap:6px;flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<script src="../config.js"></script>
+<header id="topbar">
+  <a href="../index.html" class="topbar-logo" id="topbar-name"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav id="drawer">
+  <div class="drawer-avatar" id="drawer-avatar"></div>
+  <div class="drawer-name" id="drawer-name"></div>
+  <div class="drawer-role" id="drawer-role"></div>
+  <div class="drawer-status"><div class="drawer-dot"></div><span id="drawer-status"></span></div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Navigate</div>
+  <ul class="drawer-nav">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="drawer-divider"></div>
+  <div class="drawer-label">Contact</div>
+  <div class="drawer-contact" id="drawer-contact"></div>
+</nav>
+<main id="main">
+  <div class="page-eyebrow">Networking</div>
+  <h1 class="page-title">test</h1>
+  <div class="page-rule"></div>
+  <div class="post-meta">
+    <span class="post-tag">Networking</span>
+    <span class="post-date">April 2026</span>
+    <span class="post-read">5 min read</span>
+  </div>
+  <!-- excerpt stored for blog index -->
+  <meta name="description" data-excerpt="" content="">
+  <div class="post-body">
+test
+  </div><!-- POST FOOTER -->
+  <div class="post-footer">
+    <a href="../blog.html" class="post-back">&larr; Back to blog</a>
+    <div class="post-tags"><span class="pill">Networking</span></div>
+  </div>
+  <div style="height:48px;"></div>
+</main>
+<script>
+  const initials = SITE.name.split(' ').map(w=>w[0]).join('');
+  document.getElementById('topbar-name').textContent = SITE.name;
+  document.getElementById('drawer-avatar').textContent = initials;
+  document.getElementById('drawer-name').textContent = SITE.name;
+  document.getElementById('drawer-role').textContent = SITE.role;
+  document.getElementById('drawer-status').textContent = SITE.status;
+  document.getElementById('drawer-contact').innerHTML = SITE.contact.map(c=>
+    '<a href="'+c.href+'" '+(c.href.startsWith('http')?'target="_blank"':'')+'><span class="drawer-contact-label">'+c.label+'</span>'+c.value+'</a>'
+  ).join('');
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
